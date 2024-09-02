@@ -55,7 +55,7 @@ app.put('/api/criterios/:id', (req, res) => {
 });
 
 // Rotas para listar e atualizar órgãos
-app.get('/api/orgaos', (req, res) => res.json(oargaos));
+app.get('/api/orgaos', (req, res) => res.json(orgaos));
 
 app.put('/api/orgaos/:id', (req, res) => {
   const result = updateItem(orgaos, req.params.id, req.body);
