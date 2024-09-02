@@ -48,3 +48,59 @@
   margin-top: 10px;
   font-weight: 400;
 }
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+  .criteria-list {
+    flex-direction: column;
+    padding: 0 50px;
+    gap: 20px;
+  }
+
+  .criteria-item {
+    width: 100%;
+    padding-top: 15px;
+  }
+
+  .criteria-title {
+    font-size: 22px;
+  }
+
+  .criteria-description {
+    font-size: 16px;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  .info-text {
+    font-size: 24px;
+    padding-top: 20px;
+  }
+
+  .subinfo {
+    font-size: 18px;
+    padding: 0 10px;
+  }
+
+  .criteria-section {
+    padding: 30px 0;
+  }
+
+  .criteria-list {
+    padding: 0 20px;
+    gap: 15px;
+  }
+
+  .criteria-item {
+    padding-top: 10px;
+  }
+
+  .criteria-title {
+    font-size: 20px;
+  }
+
+  .criteria-description {
+    font-size: 14px;
+  }
+}

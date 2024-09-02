@@ -44,82 +44,63 @@
     background-color: #2B3587;
 }
 
-/* Responsividade */
-@media (max-width: 1200px) {
-    .simple-section {
-        padding-left: 100px;
-        height: auto;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .texto-desconto {
-        font-size: 28px;
-        width: 80%;
-    }
-
-    .content {
-        max-width: 800px;
-        width: 100%;
-    }
-
-    .button {
-        width: 180px;
-        height: 50px;
-        font-size: 15px;
-    }
-}
-
+/* Responsividade para tablets */
 @media (max-width: 768px) {
     .simple-section {
-        padding-left: 20px;
-        padding-right: 20px;
-        height: auto;
-        margin-top: 50px;
-        text-align: center;
-        align-items: center;
+      text-align: center; /* Centraliza o texto */
+      padding: 40px 20px; /* Adiciona um pouco de espaçamento interno */
     }
-
+  
     .texto-desconto {
-        font-size: 24px;
-        width: 100%;
+      font-size: 28px; /* Reduz o tamanho da fonte */
+      width: 100%; /* Ajusta para ocupar toda a largura */
+      margin-bottom: 20px; /* Ajusta o espaço abaixo do texto */
+      color: #333; /* Cor de texto mais escura para melhor contraste */
     }
-
-    .content {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-
+  
     .button {
-        width: 160px;
-        height: 45px;
-        font-size: 14px;
+      width: 80%; /* Ajusta a largura do botão */
+      margin: 0 auto; /* Centraliza o botão */
+      padding: 15px 20px; /* Aumenta o padding para um botão mais "cheio" */
+      border-radius: 25px; /* Bordas mais arredondadas */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
     }
-}
-
-@media (max-width: 480px) {
+  
+    .button:hover {
+      background-color: #3745AF;
+    }
+  
+    .button:active {
+      background-color: #2B3587;
+    }
+  }
+  
+  /* Responsividade para dispositivos móveis */
+  @media (max-width: 480px) {
     .simple-section {
-        padding-left: 10px;
-        padding-right: 10px;
-        height: auto;
-        margin-top: 40px;
-        text-align: center;
-        align-items: center;
+      text-align: center; /* Centraliza o texto */
+      padding: 30px 15px; /* Adiciona um pouco de espaçamento interno */
     }
-
+  
     .texto-desconto {
-        font-size: 20px;
-        width: 100%;
+      font-size: 24px; /* Reduz o tamanho da fonte para telas menores */
+      width: 100%; /* Ajusta para ocupar toda a largura */
+      margin-bottom: 15px; /* Ajusta o espaço abaixo do texto */
+      color: #333; /* Cor de texto mais escura para melhor contraste */
     }
-
-    .content {
-        max-width: 100%;
-        padding: 0 10px;
-    }
-
+  
     .button {
-        width: 140px;
-        height: 40px;
-        font-size: 13px;
+      width: 100%; /* O botão ocupa toda a largura */
+      padding: 15px; /* Mantém o padding ajustado */
+      border-radius: 20px; /* Bordas ainda mais arredondadas */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
     }
-}
+  
+    .button:hover {
+      background-color: #3745AF;
+    }
+  
+    .button:active {
+      background-color: #2B3587;
+    }
+  }

@@ -36,7 +36,7 @@ const Review = () => {
                 <h1 className="title-review">{review.product}</h1>
                 <div className="review-content-page">
                     <div className="review-image-container">
-                        <img className="review-placeholder" />
+                        <img className="review-placeholder" src={`https://bfbaby.com.br/up/review-${review.id}.png`}/>
                     </div>
                     <div className="top1">
                         <div className="top1-image">
