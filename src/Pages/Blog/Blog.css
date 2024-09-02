@@ -1,0 +1,136 @@
+.title-blog {
+    padding-bottom: 30px;
+    font-size: 40px;
+    font-weight: 800;
+    padding-left: 3px;
+}
+
+.blogss-container {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.blogs-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 150px;
+}
+
+.images-placeholder-blog {
+    width: 830px;
+    height: 440px;
+    border-radius: 24px;
+    background-size: cover;
+    background-color: rgb(184, 184, 184);
+}
+
+.text-content {
+    max-width: 50%;
+    margin-left: 30px;
+}
+
+.text-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.text-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.leiaMais {
+    display: block;
+    margin-top: 20px;
+    width: 120px;
+    color: #4E61F6 ;
+    font-weight: 600;
+    text-decoration: underline white;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #F9F9FA;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 455px;
+    height: 570px;
+}
+
+.blog-card-image {
+    flex-shrink: 0;
+    width: 376px;
+    height: 220px;
+    background-color: #d3d3d3;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+}
+
+.blog-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+    flex-grow: 1;
+}
+
+.blog-card-content h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #000;
+    text-align: left;
+}
+
+.blog-card-content p {
+    margin-top: 10px;
+    line-height: 1.6;
+    color: #000;
+    font-size: 16px;
+    text-align: left;
+}
+
+.blog-read-more {
+    width: 97px;
+    margin-top: auto;
+    padding-top: 15px;
+    align-self: flex-start;
+    font-size: 16px;
+    color: #4E61F6 !important;
+    font-weight: 600;
+    text-decoration: underline #F9F9FA;
+}
+
+.blog-read-more:hover{
+    font-size: 18px;
+}
+
+.blog-cards-container {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 30px;
+    justify-content: flex-start;
+}
+
+.blog-card, .placeholder-card {
+    flex: 1 1 calc(33.333% - 20px);
+    max-width: calc(33.333% - 20px);
+    box-sizing: border-box;
+    min-height: 200px;
+}
+
+.placeholder-card {
+    visibility: hidden;
+}

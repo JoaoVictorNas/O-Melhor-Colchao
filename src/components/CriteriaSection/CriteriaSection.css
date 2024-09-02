@@ -1,0 +1,50 @@
+.info-text {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.subinfo {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+  color: #414040;
+}
+
+.criteria-section {
+  padding: 40px 0;
+}
+
+.criteria-list {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-top: 20px;
+  padding: 0 150px;
+  gap: 40px;
+}
+
+.criteria-item {
+  padding-top: 25px;
+  width: 30%;
+}
+
+.criteria-icon {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.criteria-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.criteria-description {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 400;
+}

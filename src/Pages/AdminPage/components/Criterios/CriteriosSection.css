@@ -1,0 +1,98 @@
+.criterios-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-left: 5px solid #4758E0;
+}
+
+.criterios-title {
+    font-size: 1.5rem;
+    color: #4758E0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4758E0;
+}
+
+.criterio-item {
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.criterio-header {
+    background-color: #F9F9FA;
+    border-radius: 24px;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.criterio-header:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.criterio-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.criterio-content {
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+}
+
+.criterio-edit-input,
+.criterio-edit-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.criterio-edit-input:focus,
+.criterio-edit-textarea:focus {
+    border-color: #3F51B5;
+    box-shadow: 0 0 8px rgba(63, 81, 181, 0.2);
+    outline: none;
+}
+
+.criterio-edit-textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.button-group {
+    text-align: right;
+}
+
+.save-button {
+    padding: 10px 20px;
+    background-color: #4E61F6; 
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.save-button:hover {
+    background-color: #3745AF;
+    transform: translateY(-3px);
+}
+
+.save-button:active{
+    background-color: #2B3587;
+}

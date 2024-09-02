@@ -1,0 +1,156 @@
+.Review-colchao {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.title-review {
+    padding-bottom: 30px;
+    font-size: 40px;
+    font-weight: 800;
+    padding-left: 3px;
+}
+
+.review-placeholder {
+    width: 830px;
+    height: 440px;
+    border-radius: 24px;
+    background-color: rgb(184, 184, 184);
+}
+
+.winner-placeholder {
+    width: 830px;
+    height: 440px;
+    border-radius: 24px;
+}
+
+.top1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #F9F9FA;
+    border-radius: 24px;
+    width: 100%;
+    max-width: 455px;
+    height: 440px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.top1:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.top1-image {
+    flex-shrink: 0;
+    width: 415px;
+    height: 220px;
+    background-image: url(https://bfbaby.com.br/up/top1-colchao.png);
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    margin: 20px;
+}
+
+.top1-content {
+    padding: 0 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top1-content h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
+}
+
+.top1-content p {
+    margin-top: 10px;
+    line-height: 1.6;
+    color: #000;
+    font-size: 16px;
+}
+
+.ver-produto {
+    background-color: #4E61F6;
+    color: white;
+    font-size: 18px;
+    width: 91%;
+    height: 56px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ver-produto:hover {
+    background-color: #3745AF;
+}
+
+.ver-produto:active {
+    background-color: #2B3587;
+}
+
+.review-content-page {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tag-review {
+    position: absolute;
+    top: 30px;
+    left: 25px;
+    width: 160px;
+    border-radius: 10px;
+}
+
+.conclusao,
+.sobre-a-marca,
+.sobre-o-colchao,
+.vencedor-do-teste,
+.como-chegamos {
+    margin-bottom: 40px;
+}
+
+.conclusao h1,
+.sobre-a-marca h1,
+.sobre-o-colchao h1,
+.vencedor-do-teste h1,
+.como-chegamos h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.conclusao p,
+.sobre-a-marca p,
+.sobre-o-colchao p,
+.como-chegamos p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+}
+
+.como-chegamos ul li {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.criteria-icon {
+    margin-right: 8px;
+}
+
+.sobre-a-marca ul li,
+.sobre-o-colchao ul li,
+.conclusao ul li{
+    margin-left: 20px;
+}

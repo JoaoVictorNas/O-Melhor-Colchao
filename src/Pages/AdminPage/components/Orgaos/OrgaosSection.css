@@ -1,0 +1,94 @@
+.reguladores-admin-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-left: 5px solid #4758E0;
+}
+
+.reguladores-admin-title {
+    font-size: 1.5rem;
+    color: #4758E0;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4758E0;
+}
+
+.reguladores-admin-item {
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.reguladores-admin-header {
+    background-color: #F9F9FA;
+    border-radius: 24px;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.reguladores-admin-header:hover{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.reguladores-admin-orgao-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.reguladores-admin-content {
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-top: 10px;
+}
+
+.reguladores-admin-edit-input,
+.reguladores-admin-edit-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reguladores-admin-edit-input:focus,
+.reguladores-admin-edit-textarea:focus {
+    border-color: #005ce5;
+    box-shadow: 0 0 8px rgba(0, 92, 229, 0.2);
+    outline: none;
+}
+
+.reguladores-admin-edit-textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.reguladores-admin-button-group {
+    text-align: right;
+}
+
+.reguladores-admin-save-button {
+    padding: 10px 20px;
+    background-color: #3F51B5; 
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reguladores-admin-save-button:hover {
+    background-color: #004bb5;
+    transform: translateY(-3px);
+}

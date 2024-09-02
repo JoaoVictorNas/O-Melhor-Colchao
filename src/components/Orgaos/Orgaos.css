@@ -1,0 +1,50 @@
+.reguladores-section {
+    padding: 40px 0;
+}
+
+.reguladores-info-text {
+    padding-top: 30px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.reguladores-subinfo {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    color: #414040;
+}
+
+.reguladores-list {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 20px;
+    padding: 0 150px;
+    gap: 40px;
+}
+
+.reguladores-item {
+    padding-top: 25px;
+    width: 30%;
+}
+
+.reguladores-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.reguladores-icon {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+.reguladores-description {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: 400;
+}
