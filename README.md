@@ -1,89 +1,206 @@
-# Projeto do site O Melhor Colchão
+### README.md para o Projeto **O Melhor Colchão**
 
-## Visão Geral
+---
 
-Este projeto é uma aplicação web voltada para o gerenciamento de conteúdo de uma plataforma. Ela permite que os administradores gerenciem diversas seções do site, como critérios, sliders, comparações, órgãos, descontos, FAQs e blogs, por meio de uma interface administrativa amigável.
+# O Melhor Colchão
 
-## Estrutura do Projeto
+**O Melhor Colchão** é uma aplicação web abrangente projetada para gerenciar e exibir produtos de colchões, avaliações, comparações e conteúdo relacionado. O projeto inclui um painel administrativo robusto que permite editar e gerenciar várias seções, como critérios, sliders, comparações, organizações, descontos, blogs, FAQs e avaliações. A aplicação é construída com React no frontend e Express.js no backend, com dados armazenados em um arquivo JSON.
 
-A estrutura do projeto está organizada da seguinte maneira:
+## Sumário
 
+- [Visão Geral do Projeto](#visão-geral-do-projeto)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Instalação e Configuração](#instalação-e-configuração)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Scripts Disponíveis](#scripts-disponíveis)
+- [Endpoints da API](#endpoints-da-api)
+- [Guia do Painel Administrativo](#guia-do-painel-administrativo)
+- [Implantação](#implantação)
+- [Melhorias Futuras](#melhorias-futuras)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
-### Descrição das Pastas e Arquivos
+## Visão Geral do Projeto
 
-- **/Pages/AdminPage**: Contém a página administrativa principal e os componentes que compõem a interface de administração, como cabeçalhos, barras laterais e seções específicas.
-- **/Pages/Blog**: Contém a página de blog onde os artigos são exibidos.
-- **/Pages/Materia**: Contém a página específica para exibir uma matéria ou artigo.
-- **/Pages/Review**: Contém a página de review dos produtos.
-- **/data/data.json**: Arquivo que armazena os dados persistentes do projeto, como critérios, sliders, comparações, FAQs, entre outros.
-- **/src/index.js**: Arquivo principal do backend, onde as rotas da API são definidas e o servidor é configurado.
-- **/components**: Contém componentes reutilizáveis como cabeçalhos, rodapés e carrosséis de blogs.
+**O Melhor Colchão** é uma plataforma que serve tanto para clientes quanto para administradores. Os clientes podem visualizar e comparar produtos de colchões, ler avaliações detalhadas e explorar o conteúdo do blog. Os administradores têm acesso a um painel onde podem gerenciar o conteúdo exibido no site público.
 
-## Funcionalidades Principais
+O objetivo principal deste projeto é fornecer uma interface intuitiva para os clientes tomarem decisões informadas sobre a compra de colchões, enquanto permite que os administradores gerenciem e atualizem o conteúdo de forma eficiente.
 
-- **AdminPage**: Interface principal para administração, onde diferentes seções podem ser gerenciadas.
-- **Blog**: Exibição de artigos e matérias.
-- **Review**: Página para exibir avaliações e detalhes dos produtos.
-- **FAQ**: Gestão e exibição de perguntas frequentes, tanto na página pública quanto na interface administrativa.
-- **Carrosséis**: Exibição de conteúdo em carrossel, como blogs e sliders.
+## Funcionalidades
 
-## Como Usar
+### Funcionalidades para Clientes
 
-### Pré-requisitos
+- **Comparação de Produtos**: Permite que os usuários comparem diferentes produtos de colchões com base em vários critérios, como conforto, durabilidade e suporte.
+- **Avaliações**: Avaliações detalhadas de colchões, incluindo conclusões e informações sobre a marca.
+- **Seção de Blog**: Artigos e posts de blog relacionados a sono, colchões e outros temas.
+- **FAQs**: Perguntas frequentes para ajudar os usuários a tomarem decisões informadas.
 
-- Node.js e npm instalados
-- Um editor de texto como Visual Studio Code
+### Funcionalidades do Painel Administrativo
 
-### Passos para Rodar o Projeto
+- **Gestão de Critérios**: Editar e atualizar os critérios usados para a comparação de produtos.
+- **Gestão de Sliders**: Gerenciar sliders na página inicial com características chave dos produtos.
+- **Gestão de Comparações**: Editar e atualizar os detalhes das comparações de produtos.
+- **Gestão de Organizações**: Gerenciar informações sobre organizações certificadoras.
+- **Gestão de Descontos**: Configurar e gerenciar descontos disponíveis na plataforma.
+- **Gestão de Blogs**: Criar, editar e excluir posts de blog.
+- **Gestão de FAQs**: Gerenciar perguntas frequentes.
 
-1. Clone o repositório:
-    ```bash
-    git clone https://github.com/seu-usuario/seu-repositorio.git
-    ```
+## Tecnologias Utilizadas
 
-2. Navegue até a pasta do projeto:
-    ```bash
-    cd seu-repositorio
-    ```
+- **Frontend**: React.js
+- **Backend**: Express.js
+- **Banco de Dados**: Dados armazenados em um arquivo JSON
+- **Gerenciamento de Estado**: React Hooks
+- **Estilização**: CSS personalizado
+- **Editor de Texto**: ReactQuill para edição de conteúdo de blogs e reviews
+- **Autenticação**: Implementada com tokens simulados no localStorage
 
-3. Instale as dependências:
-    ```bash
-    npm install
-    ```
+## Instalação e Configuração
 
-4. Inicie o servidor:
-    ```bash
-    npm start
-    ```
+### Requisitos
 
-5. Abra o navegador e acesse:
-    ```
-    http://localhost:3000
-    ```
+- Node.js (v14 ou superior)
+- npm ou yarn
 
-### Estrutura do Backend
+### Passos para Instalação
 
-O backend do projeto é implementado em Node.js usando o framework Express. Ele fornece rotas para gerenciar os dados das seções de critério, sliders, comparações, órgãos, descontos, FAQs e blogs.
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/JoaoVictorNas/O-Melhor-Colchao.git
+   cd o-melhor-colchao
+   ```
 
-Exemplo de uma rota GET para buscar critérios:
-```javascript
-app.get('/api/criterios', (req, res) => res.json(criterios));
+2. **Instale as dependências:**
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+3. **Inicie o servidor de desenvolvimento:**
+   ```bash
+   npm start
+   # ou
+   yarn start
+   ```
+
+4. **Acesse o aplicativo:**
+   Abra o navegador e vá para `http://localhost:3000`.
+
+## Estrutura de Pastas
+
+A estrutura básica do projeto é a seguinte:
+
 ```
-Exemplo de uma rota PUT para buscar critérios:
-```javascript
-app.put('/api/criterios/:id', (req, res) => {
-  const result = updateItem(criterios, req.params.id, req.body);
-  res.status(result.success ? 200 : 404).json({ message: result.message });
-});
+o-melhor-colchao/
+│
+├── public/                 # Arquivos públicos
+├── src/                    # Código-fonte
+│   ├── components/         # Componentes React reutilizáveis
+│   ├── pages/              # Páginas da aplicação
+│   ├── styles/             # Arquivos de estilo (CSS)
+│   ├── App.js              # Componente principal
+│   ├── index.js            # Ponto de entrada do React
+│   └── ...                 # Outros arquivos e pastas
+├── api/                 # Backend Express.js
+│   ├── index.js            # Servidor Express
+│   ├── data.json           # Banco de dados JSON
+│   └── ...                 # Outros arquivos e pastas
+├── package.json            # Configuração do npm/yarn
+└── README.md               # Documentação do projeto
 ```
 
-Usando a Página Admin
-Login: Acesse o painel administrativo via /login e insira suas credenciais.
-Navegação: Use a sidebar para navegar entre as seções (Criterios, Slider, Compare, Orgaos, Desconto, FAQ, Blogs).
-Edição de Conteúdo: Em cada seção, edite os campos desejados e clique em "Salvar" para persistir as mudanças.
-Exemplo Prático
-Se você quiser adicionar um novo blog:
+## Scripts Disponíveis
 
-Navegue até a seção Blogs.
-Preencha os campos necessários para criar um novo blog (slug, título, descrição, conteúdo).
-Clique em "Salvar" para adicionar o novo blog.
+No diretório do projeto, você pode executar:
+
+- **`npm start` ou `yarn start`**: Inicia o servidor de desenvolvimento.
+- **`npm run build` ou `yarn build`**: Cria uma versão otimizada para produção do aplicativo.
+- **`npm test` ou `yarn test`**: Executa os testes.
+- **`npm run lint` ou `yarn lint`**: Verifica erros de linting no código.
+
+## Endpoints da API
+
+- **GET `/api/criterios`**: Retorna todos os critérios.
+- **PUT `/api/criterios/:id`**: Atualiza um critério específico.
+- **GET `/api/slider`**: Retorna todos os sliders.
+- **PUT `/api/slider/:id`**: Atualiza um slider específico.
+- **GET `/api/compare`**: Retorna todos os itens de comparação.
+- **PUT `/api/compare/:id`**: Atualiza um item de comparação específico.
+- **GET `/api/orgaos`**: Retorna todos os órgãos.
+- **PUT `/api/orgaos/:id`**: Atualiza um órgão específico.
+- **GET `/api/desconto`**: Retorna os dados de desconto.
+- **PUT `/api/desconto/:id`**: Atualiza o desconto específico.
+- **GET `/api/blogs`**: Retorna todos os blogs.
+- **POST `/api/blogs`**: Cria um novo post de blog.
+- **PUT `/api/blogs/:id`**: Atualiza um post de blog específico.
+- **GET `/api/faq`**: Retorna todos os FAQs.
+- **PUT `/api/faq/:id`**: Atualiza um FAQ específico.
+- **GET `/api/review/:url`**: Retorna um review baseado na URL.
+
+## Guia do Painel Administrativo
+
+### Acesso ao Painel
+
+1. **Login**: Para acessar o painel administrativo, faça login usando as credenciais fornecidas. Se o token de autenticação não estiver presente, o usuário será redirecionado para a tela de login.
+
+2. **Logout**: Para deslogar, use o botão de logout no cabeçalho. Isso removerá o token de autenticação do localStorage e redirecionará para a tela de login.
+
+### Seções do Painel
+
+- **Home**: Tela inicial do painel com mensagens de boas-vindas.
+- **Critérios**: Editar os critérios de comparação de produtos.
+- **Slider**: Gerenciar os sliders da página inicial.
+- **Comparação**: Editar os detalhes das comparações de produtos.
+- **Organizações**: Gerenciar informações sobre organizações certificadoras.
+- **Descontos**: Configurar descontos disponíveis no site.
+- **Blogs**: Criar, editar e excluir posts de blog.
+- **FAQs**: Gerenciar perguntas frequentes.
+- **Reviews**: Editar avaliações de produtos.
+
+### Editando Conteúdo
+
+Em cada seção, selecione o item que deseja editar. As mudanças podem ser salvas clicando no botão "Salvar". Para criar novos blogs, preencha os campos necessários e clique em "Criar Blog".
+
+## Implantação
+
+Para implantar o projeto em produção:
+
+1. **Construa a aplicação:**
+   ```bash
+   npm run build
+   # ou
+   yarn build
+   ```
+
+2. **Suba os arquivos gerados para seu servidor de hospedagem.**
+
+3. **Inicie o servidor backend com o comando:**
+   ```bash
+   node index.js
+   ```
+
+## Melhorias Futuras
+
+- Implementar autenticação com tokens JWT para maior segurança.
+- Adicionar suporte para múltiplos usuários com diferentes níveis de acesso.
+- Melhorar a interface do usuário com mais opções de personalização.
+- Implementar testes unitários e de integração para garantir a estabilidade do sistema.
+
+## Contribuição
+
+Contribuições são bem-vindas! Para contribuir:
+
+1. **Fork o repositório**
+2. **Crie uma nova branch**
+   ```bash
+   git checkout -b minha-nova-funcionalidade
+   ```
+3. **Faça as alterações desejadas**
+4. **Envie um Pull Request**
+
+## Licença
+
+Este projeto é licenciado sob a Licença MIT. Consulte o arquivo `LICENSE` para mais informações.
+
