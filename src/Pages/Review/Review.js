@@ -50,7 +50,9 @@ const Review = () => {
                             <h2>BF Colchões</h2>
                             <p>BF Antiestress</p>
                         </div>
-                        <button className="ver-produto">Ver produto</button>
+                        <a href='https://emcompre.com.br/colchao-casal-firme-antistress-vacuo-ortopedico-light-bf-colchoes.html?srsltid=AfmBOoqKSakFRB2GI0S4nSCe2FQqwHsEGQT_cJgE2rQYoLsrUBfct2S-'>
+                            <button className="ver-produto">Ver produto</button>
+                        </a>
                     </div>
                 </div>
                 <hr />
