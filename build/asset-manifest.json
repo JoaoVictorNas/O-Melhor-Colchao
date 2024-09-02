@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/O-Melhor-Colchao/static/css/main.4ca73dc6.css",
+    "main.js": "/O-Melhor-Colchao/static/js/main.6436d176.js",
+    "static/media/slick.svg": "/O-Melhor-Colchao/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/O-Melhor-Colchao/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/O-Melhor-Colchao/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/O-Melhor-Colchao/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/O-Melhor-Colchao/index.html",
+    "main.4ca73dc6.css.map": "/O-Melhor-Colchao/static/css/main.4ca73dc6.css.map",
+    "main.6436d176.js.map": "/O-Melhor-Colchao/static/js/main.6436d176.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4ca73dc6.css",
+    "static/js/main.6436d176.js"
+  ]
+}
