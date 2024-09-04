@@ -47,12 +47,11 @@
 /* Responsividade para tablets */
 @media (max-width: 768px) {
     .simple-section {
-      text-align: center; /* Centraliza o texto */
       padding: 40px 20px; /* Adiciona um pouco de espaçamento interno */
     }
   
     .texto-desconto {
-      font-size: 28px; /* Reduz o tamanho da fonte */
+      font-size: 24px; /* Reduz o tamanho da fonte */
       width: 100%; /* Ajusta para ocupar toda a largura */
       margin-bottom: 20px; /* Ajusta o espaço abaixo do texto */
       color: #333; /* Cor de texto mais escura para melhor contraste */
@@ -78,12 +77,11 @@
   /* Responsividade para dispositivos móveis */
   @media (max-width: 480px) {
     .simple-section {
-      text-align: center; /* Centraliza o texto */
       padding: 30px 15px; /* Adiciona um pouco de espaçamento interno */
     }
   
     .texto-desconto {
-      font-size: 24px; /* Reduz o tamanho da fonte para telas menores */
+      font-size: 20px; /* Reduz o tamanho da fonte para telas menores */
       width: 100%; /* Ajusta para ocupar toda a largura */
       margin-bottom: 15px; /* Ajusta o espaço abaixo do texto */
       color: #333; /* Cor de texto mais escura para melhor contraste */

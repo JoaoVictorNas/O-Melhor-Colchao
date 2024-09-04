@@ -62,49 +62,64 @@
 
 /* TABLETS */
 @media (min-width: 600px) {
+  .title-section {
+    background-position: center;
+    background-size: cover;
+  }
+
   .main-title {
-      font-size: 56px;
+    font-size: 56px;
   }
 
   .sub-title {
-      font-size: 28px;
+    font-size: 28px;
   }
 
   .cta-button {
-      font-size: 18px;
-      height: 55px;
+    font-size: 18px;
+    height: 55px;
   }
 }
 
 /* DESKTOP */
 @media (min-width: 1024px) {
+  .title-section {
+    background-position: center;
+    background-size: cover;
+  }
+
   .main-title {
-      font-size: 64px;
+    font-size: 64px;
   }
 
   .sub-title {
-      font-size: 32px;
+    font-size: 32px;
   }
 
   .cta-button {
-      width: 373px;
-      height: 59px;
+    width: 373px;
+    height: 59px;
   }
 }
 
 /* MOBILE */
 @media (max-width: 599px) {
+  .title-section {
+    background-position: center;
+    background-size: cover;
+  }
+
   .main-title {
-      font-size: 36px;
+    font-size: 36px;
   }
 
   .sub-title {
-      font-size: 20px;
+    font-size: 20px;
   }
 
   .cta-button {
-      width: 90%;
-      height: 45px;
-      font-size: 16px;
+    width: 90%;
+    height: 45px;
+    font-size: 16px;
   }
 }

@@ -155,150 +155,136 @@
 
 /* Responsividade para tablets */
 @media (max-width: 768px) {
-    .Review-colchao {
-      width: 90%; /* Aumenta a largura para ocupar mais espaço em tablets */
-      padding-top: 40px; /* Reduz o padding superior */
-    }
-  
-    .title-review {
-      font-size: 32px; /* Reduz o tamanho da fonte do título */
-      padding-bottom: 20px; /* Reduz o espaço abaixo do título */
-      padding-left: 0; /* Remove o padding à esquerda */
-    }
-  
-    .review-placeholder,
-    .winner-placeholder {
-      width: 100%; /* Ajusta a largura para 100% */
-      height: auto; /* Deixa a altura ajustável conforme o conteúdo */
-    }
-  
-    .top1 {
-      max-width: 100%; /* Ajusta a largura máxima para 100% */
-      height: auto; /* Ajusta a altura automaticamente */
-    }
-  
-    .top1-image {
-      width: 100%; /* Ajusta a largura da imagem para 100% */
-      height: 200px; /* Reduz a altura da imagem */
-      margin: 15px; /* Reduz a margem ao redor da imagem */
-    }
-  
-    .top1-content h2 {
-      font-size: 20px; /* Reduz o tamanho da fonte do título */
-    }
-  
-    .top1-content p {
-      font-size: 14px; /* Reduz o tamanho da fonte do parágrafo */
-    }
-  
-    .ver-produto {
-      width: 100%; /* Ajusta a largura do botão para 100% */
-      height: 50px; /* Reduz a altura do botão */
-      font-size: 16px; /* Reduz o tamanho da fonte do botão */
-    }
-  
-    .review-content-page {
-      flex-direction: column; /* Alinha o conteúdo em coluna */
-      gap: 20px; /* Adiciona um espaço entre os itens */
-    }
-  
-    .tag-review {
-      width: 140px; /* Reduz o tamanho da tag */
-      top: 20px; /* Ajusta a posição superior */
-      left: 15px; /* Ajusta a posição à esquerda */
-    }
-  
-    .conclusao h1,
-    .sobre-a-marca h1,
-    .sobre-o-colchao h1,
-    .vencedor-do-teste h1,
-    .como-chegamos h1 {
-      font-size: 26px; /* Reduz o tamanho da fonte dos subtítulos */
-    }
-  
-    .conclusao p,
-    .sobre-a-marca p,
-    .sobre-o-colchao p,
-    .como-chegamos p {
-      font-size: 16px; /* Reduz o tamanho da fonte dos parágrafos */
-    }
-  
-    .como-chegamos ul li {
-      font-size: 16px; /* Reduz o tamanho da fonte dos itens da lista */
-    }
+  .Review-colchao {
+      width: 95%;
+      padding-top: 40px;
   }
-  
-  /* Responsividade para dispositivos móveis */
-  @media (max-width: 480px) {
-    .Review-colchao {
-      width: 100%; /* Ajusta a largura para ocupar todo o espaço disponível */
-      padding-top: 30px; /* Reduz o padding superior */
-    }
-  
-    .title-review {
-      font-size: 28px; /* Reduz ainda mais o tamanho da fonte do título */
-      padding-bottom: 15px; /* Reduz o espaço abaixo do título */
-      padding-left: 0; /* Remove o padding à esquerda */
-    }
-  
-    .review-placeholder,
-    .winner-placeholder {
-      width: 100%; /* Ajusta a largura para 100% */
-      height: auto; /* Deixa a altura ajustável conforme o conteúdo */
-    }
-  
-    .top1 {
-      max-width: 100%; /* Mantém a largura máxima em 100% */
-      height: auto; /* Deixa a altura ajustável conforme o conteúdo */
-    }
-  
-    .top1-image {
-      width: 100%; /* Ajusta a largura da imagem para 100% */
-      height: 180px; /* Reduz a altura da imagem */
-      margin: 10px; /* Reduz a margem ao redor da imagem */
-    }
-  
-    .top1-content h2 {
-      font-size: 18px; /* Reduz o tamanho da fonte do título */
-    }
-  
-    .top1-content p {
-      font-size: 14px; /* Mantém o tamanho da fonte do parágrafo */
-    }
-  
-    .ver-produto {
-      width: 100%; /* Ajusta a largura do botão para 100% */
-      height: 45px; /* Reduz a altura do botão */
-      font-size: 14px; /* Reduz o tamanho da fonte do botão */
-    }
-  
-    .review-content-page {
-      flex-direction: column; /* Mantém o conteúdo alinhado em coluna */
-      gap: 15px; /* Reduz o espaço entre os itens */
-    }
-  
-    .tag-review {
-      width: 120px; /* Reduz o tamanho da tag */
-      top: 15px; /* Ajusta a posição superior */
-      left: 10px; /* Ajusta a posição à esquerda */
-    }
-  
-    .conclusao h1,
-    .sobre-a-marca h1,
-    .sobre-o-colchao h1,
-    .vencedor-do-teste h1,
-    .como-chegamos h1 {
-      font-size: 24px; /* Reduz ainda mais o tamanho da fonte dos subtítulos */
-    }
-  
-    .conclusao p,
-    .sobre-a-marca p,
-    .sobre-o-colchao p,
-    .como-chegamos p {
-      font-size: 14px; /* Mantém o tamanho da fonte dos parágrafos */
-    }
-  
-    .como-chegamos ul li {
-      font-size: 14px; /* Reduz o tamanho da fonte dos itens da lista */
-    }
+
+  .title-review {
+      font-size: 36px;
+      padding-bottom: 20px;
+      text-align: center;
   }
+
+  .review-placeholder,
+  .winner-placeholder {
+      width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+  }
+
+  .top1 {
+      max-width: 100%;
+      height: auto;
+      padding: 15px;
+  }
+
+  .top1-image {
+      height: 200px;
+      margin-bottom: 15px;
+  }
+
+  .top1-content h2 {
+      font-size: 22px;
+  }
+
+  .top1-content p {
+      font-size: 14px;
+  }
+
+  .ver-produto {
+      width: 100%;
+      height: 50px;
+      font-size: 16px;
+  }
+
+  .review-content-page {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .conclusao h1,
+  .sobre-a-marca h1,
+  .sobre-o-colchao h1,
+  .vencedor-do-teste h1,
+  .como-chegamos h1 {
+      font-size: 28px;
+  }
+
+  .conclusao p,
+  .sobre-a-marca p,
+  .sobre-o-colchao p,
+  .como-chegamos p {
+      font-size: 16px;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  .Review-colchao {
+      width: 90%;
+      padding-top: 30px;
+  }
+
+  .title-review {
+      font-size: 28px;
+      padding-bottom: 15px;
+  }
+
+  .review-placeholder,
+  .winner-placeholder {
+      width: 100%;
+      height: auto;
+  }
+
+  .top1 {
+    max-width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .top1-image {
+      width: 88%;
+      height: 180px;
+      margin-bottom: 10px;
+  }
+
+  .top1-content h2 {
+      font-size: 20px;
+  }
+
+  .top1-content p {
+      font-size: 14px;
+  }
+
+  .ver-produto {
+      width: 88%;
+      height: 45px;
+      font-size: 14px;
+  }
+
+  .review-content-page {
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .conclusao h1,
+  .sobre-a-marca h1,
+  .sobre-o-colchao h1,
+  .vencedor-do-teste h1,
+  .como-chegamos h1 {
+      font-size: 24px;
+  }
+
+  .conclusao p,
+  .sobre-a-marca p,
+  .sobre-o-colchao p,
+  .como-chegamos p {
+      font-size: 14px;
+  }
+
+  .vantagens-desvantagens {
+      flex-direction: column;
+      gap: 15px;
+  }
+}

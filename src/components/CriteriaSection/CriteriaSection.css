@@ -48,3 +48,75 @@
   margin-top: 10px;
   font-weight: 400;
 }
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .criteria-list {
+    padding: 0 80px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .criteria-list {
+    padding: 0 50px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .criteria-item {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .criteria-title {
+    font-size: 22px;
+  }
+
+  .criteria-description {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .info-text {
+    font-size: 28px;
+  }
+
+  .subinfo {
+    padding-left: 5px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .criteria-title {
+    font-size: 20px;
+  }
+
+  .criteria-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  .info-text {
+    font-size: 24px;
+  }
+
+  .subinfo {
+    padding-left: 5px;
+    font-size: 18px;
+  }
+
+  .criteria-list {
+    padding: 0 20px;
+  }
+
+  .criteria-title {
+    font-size: 18px;
+  }
+
+  .criteria-description {
+    font-size: 14px;
+  }
+}

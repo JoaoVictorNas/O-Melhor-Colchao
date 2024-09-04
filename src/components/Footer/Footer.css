@@ -118,6 +118,7 @@
     }
 
     .footer-description p {
+        padding-top: 30px;
         font-size: 13px;
     }
 }

@@ -95,85 +95,85 @@
 
 /* Responsividade para tablets */
 @media (max-width: 768px) {
-    .BlogTitle {
-      font-size: 32px;
-      padding-top: 40px;
-      padding-bottom: 30px;
-    }
-  
-    .custom-card-blog {
-      max-width: 100%;
-      height: auto;
-    }
-  
-    .card-image-blog {
-      height: 200px;
-      margin: 15px;
-      border-radius: 12px;
-    }
-  
-    .card-content-blog {
-      padding: 0 15px 40px 15px;
-    }
-  
-    .card-content-blog h2 {
-      font-size: 22px;
-    }
-  
-    .card-content-blog p {
-      font-size: 14px;
-    }
-  
-    .red-more {
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 14px;
-    }
-  
-    .red-more:hover {
-      font-size: 16px;
-    }
+  .BlogTitle {
+    font-size: 32px;
+    padding-top: 40px;
+    padding-bottom: 30px;
   }
-  
-  /* Responsividade para dispositivos móveis */
-  @media (max-width: 480px) {
-    .BlogTitle {
-      font-size: 24px;
-      padding-top: 30px;
-      padding-bottom: 20px;
-    }
-  
-    .custom-card-blog {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-    }
-  
-    .card-image-blog {
-      height: 180px;
-      margin: 10px;
-      border-radius: 10px;
-    }
-  
-    .card-content-blog {
-      padding: 0 10px 30px 10px;
-    }
-  
-    .card-content-blog h2 {
-      font-size: 20px;
-    }
-  
-    .card-content-blog p {
-      font-size: 14px;
-    }
-  
-    .red-more {
-      bottom: 10px;
-      font-size: 14px;
-    }
-  
-    .red-more:hover {
-      font-size: 15px;
-    }
+
+  .custom-card-blog {
+    max-width: 100%;
+    height: auto;
   }
+
+  .card-image-blog {
+    height: 200px;
+    margin: 15px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover; /* Adapta a imagem ao container */
+  }
+
+  .card-content-blog {
+    padding: 0 15px 40px 15px;
+  }
+
+  .card-content-blog h2 {
+    font-size: 22px;
+  }
+
+  .card-content-blog p {
+    font-size: 14px;
+  }
+
+  .red-more {
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+  }
+
+  .red-more:hover {
+    font-size: 16px;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 480px) {
+  .custom-card-blog {
+    max-width: 100%;
+    height: 500px; 
+    margin: 10px 0;
+  }
+
+  .card-image-blog {
+    width: 90%;
+    aspect-ratio: 16/9; 
+    border-radius: 14px;
+    background-size: cover;
+    background-position: center;
+    object-fit: cover; 
+  }
+
+  .card-content-blog {
+    padding: 0 10px 30px 10px;
+  }
+
+  .card-content-blog h2 {
+    font-size: 20px;
+  }
+
+  .card-content-blog p {
+    font-size: 14px;
+  }
+
+  .red-more {
+    bottom: 10px;
+    font-size: 14px;
+  }
+
+  .red-more:hover {
+    font-size: 15px;
+  }
+}

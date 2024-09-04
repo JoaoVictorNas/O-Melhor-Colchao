@@ -186,6 +186,8 @@
     flex-direction: column;
     height: auto;
     padding: 20px;
+    margin: 0 auto; /* Centraliza o card */
+    max-width: calc(100% - 40px); /* Garante 20px de espaço em ambos os lados */
   }
 
   .image {
@@ -196,7 +198,7 @@
 
   .tag-image {
     top: 10px;
-    left: 50%;
+    left: 74%;
     transform: translateX(-50%);
     width: 140px;
   }
@@ -204,18 +206,27 @@
   .card-content {
     padding-left: 0;
     padding-top: 20px;
+    align-items: center;
   }
 
   .card-content h2 {
     font-size: 28px;
+    text-align: center;
   }
 
   .card-content h3 {
     font-size: 20px;
+    text-align: center;
+  }
+
+  .features {
+    display: flex;
+    justify-content: center;
   }
 
   .features li {
     font-size: 14px;
+    margin-bottom: 10px;
   }
 
   .card-buttons {
@@ -252,6 +263,8 @@
 
   .card {
     padding: 15px;
+    margin: 0 auto; /* Centraliza o card */
+    max-width: calc(100% - 20px); /* Garante 10px de espaço em ambos os lados */
   }
 
   .image {
@@ -260,14 +273,20 @@
 
   .card-content h2 {
     font-size: 24px;
+    text-align: center;
   }
 
   .card-content h3 {
     font-size: 18px;
+    text-align: center;
+  }
+
+  .features {
+    display: block;
   }
 
   .features li {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .stars img {

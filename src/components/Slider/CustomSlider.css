@@ -84,7 +84,7 @@
 @media (max-width: 768px) {
   .custom-card {
     flex-direction: column !important;
-    height: auto !important;
+    height: 450px !important;
     padding: 10px;
   }
 
@@ -114,13 +114,14 @@
   .custom-card {
     padding: 10px;
     border-radius: 16px !important;
+    height: 470px !important;
   }
 
   .card-image {
     width: 100%;
-    height: 150px;
+    height: 200px;
     border-radius: 12px;
-    margin: 10px 0;
+
   }
 
   .card-content {
