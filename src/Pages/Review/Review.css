@@ -9,6 +9,8 @@
     font-size: 40px;
     font-weight: 800;
     padding-left: 3px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
 }
 
 .review-placeholder {
@@ -16,12 +18,18 @@
     height: 440px;
     border-radius: 24px;
     background-color: rgb(184, 184, 184);
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.2s;
 }
 
 .winner-placeholder {
     width: 830px;
     height: 440px;
     border-radius: 24px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.4s;
 }
 
 .top1 {
@@ -35,6 +43,9 @@
     height: 440px;
     margin: 20px 0;
     position: relative;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.6s;
 }
 
 .top1:hover {
@@ -113,6 +124,9 @@
 .vencedor-do-teste,
 .como-chegamos {
     margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.8s;
 }
 
 .conclusao h1,
@@ -149,7 +163,7 @@
 
 .sobre-a-marca ul li,
 .sobre-o-colchao ul li,
-.conclusao ul li{
+.conclusao ul li {
     margin-left: 20px;
 }
 
@@ -287,4 +301,16 @@
       flex-direction: column;
       gap: 15px;
   }
+}
+
+/* Animação de fade-in suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

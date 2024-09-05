@@ -4,9 +4,33 @@ import Slider from "react-slick";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-
 function BlogCarrossel() {
     const [blogs, setBlogs] = useState([]);
+
+    // Função para verificar se o elemento está visível na viewport
+    const isElementVisible = (el) => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+        return (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+    };
+
+    // Função para adicionar animação quando o componente estiver visível
+    const handleScroll = () => {
+        const elements = document.querySelectorAll('.animate');
+        elements.forEach(el => {
+            if (isElementVisible(el)) {
+                el.classList.add('animate-visible');
+            }
+        });
+    };
+
+    // Listener de scroll para ativar animações
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     // Busca os blogs ao carregar o componente
     useEffect(() => {
@@ -51,11 +75,11 @@ function BlogCarrossel() {
 
     return (
         <>
-            <h1 className="BlogTitle">Blog</h1>
+            <h1 className="BlogTitle animate">Blog</h1>
             <div className="slider-blog">
                 <Slider {...settings} className="custom-slider-blog">
                     {blogs.map(blog => (
-                        <div key={blog.slug} className="custom-card-blog">
+                        <div key={blog.slug} className="custom-card-blog animate">
                             <div className="card-image-blog" style={{ backgroundImage: `url(${blog.image})` }}></div>
                             <div className="card-content-blog">
                                 <h2>{blog.title}</h2>

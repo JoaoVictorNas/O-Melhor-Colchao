@@ -26,10 +26,20 @@
   max-width: 800px !important;
   height: 400px !important;
   margin: 20px 0;
+  opacity: 0;  /* Inicia invisível */
+  transform: translateY(50px);  /* Começa abaixo da posição original */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.custom-card.animate-visible {
+  opacity: 1;
+  transform: translateY(0);  /* Animação para posição original */
 }
 
 .custom-card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.02);
+  transition: transform 0.3s ease-in-out;
 }
 
 .card-image {
@@ -41,6 +51,14 @@
   background-size: cover;
   background-position: center;
   margin: 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card-image.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .card-content {
@@ -48,20 +66,14 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.card-content h2 {
-  margin: 0;
-  font-size: 1.5em;
-  font-weight: 600;
-  font-size: 24px;
-}
-
-.card-content p {
-  margin-top: 10px;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 28px;
+.card-content.animate-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .slick-dots li button:before {
@@ -121,7 +133,6 @@
     width: 100%;
     height: 200px;
     border-radius: 12px;
-
   }
 
   .card-content {

@@ -6,12 +6,47 @@ import { Link } from 'react-router-dom';
 function Compare() {
     const [compareItems, setCompareItems] = useState([]);
 
+    // Função para verificar se o elemento está visível na viewport
+    const isElementVisible = (el) => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+        const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+        return (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+    };
+
+    // Função para adicionar animação a todos os elementos quando visível
+    const activateAllAnimations = () => {
+        const animatedElements = document.querySelectorAll('.animate');
+        animatedElements.forEach(el => {
+            el.classList.add('animate-visible');
+        });
+    };
+
+    // Listener de scroll para ativar animações
+    const handleScroll = () => {
+        const firstElement = document.querySelector('.card'); // Pega o primeiro elemento do slider
+        if (firstElement && isElementVisible(firstElement)) {
+            activateAllAnimations();  // Ativa a animação em todos os elementos
+            window.removeEventListener('scroll', handleScroll);  // Remove o listener de scroll após a ativação
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+
+        // Remove o event listener quando o componente for desmontado
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
+    // Requisição dos dados dos itens do compare
     useEffect(() => {        
         const fetchCompareItems = async () => {
             try{
                 const response = await axios.get('http://localhost:3001/api/compare');
                 setCompareItems(response.data);
-                console.log(response.data);
             } catch (error) {
                 console.error("Erro ao buscar itens do Compare:", error);
             }
@@ -22,14 +57,14 @@ function Compare() {
     return (
         <div>
             <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-            <h1 className='title-comp'>Compare O Melhor Colchão</h1>
+            <h1 className='title-comp animate' id='compare'>Compare O Melhor Colchão</h1>
             {compareItems.map(item => (
-                <div className='card' key={item.id} id={`item${item.id}`}>
+                <div className='card animate' key={item.id} id={`item${item.id}`}>
                     <div className="image-container">
                         <img 
                             src={item.image} 
                             alt={item.product} 
-                            className='image' 
+                            className='image animate' 
                         />
                         {item.id === 1 && (
                             <img 
@@ -40,11 +75,11 @@ function Compare() {
                         )}
                     </div>
                     <div className='card-content'>
-                        <h2>{item.brand}</h2>
-                        <h3>{item.product}</h3>
+                        <h2 className='animate'>{item.brand}</h2>
+                        <h3 className='animate'>{item.product}</h3>
                         <ul className='features'>
                             {item.features.map((feature, index) => (
-                                <li key={index}>
+                                <li key={index} className="animate">
                                     <span className="material-symbols-outlined check">check_circle</span>
                                     {`${feature.feature} ${feature.rating}`}
                                 </li>

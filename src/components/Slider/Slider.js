@@ -8,6 +8,46 @@ import axios from 'axios';
 function CustomSlider() {
     const [data, setData] = useState([]);
 
+    // Função para verificar se o container do slider está visível na viewport
+    const isSliderVisible = (el) => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+        const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+        // Verifica se qualquer parte do container do slider está visível
+        const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+        const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
+
+        return (vertInView && horInView);
+    };
+
+    // Função para aplicar animação em todos os elementos do slider
+    const activateAllAnimations = () => {
+        const animatedElements = document.querySelectorAll('.custom-card, .card-image, .card-content');
+        animatedElements.forEach((el) => {
+            el.classList.add('animate-visible');
+        });
+    };
+
+    // Função para monitorar a visibilidade do container do slider
+    const handleScroll = () => {
+        const sliderContainer = document.querySelector('.slider-container');  // Pega o container do slider
+        if (sliderContainer && isSliderVisible(sliderContainer)) {
+            activateAllAnimations();  // Ativa a animação em todos os elementos
+            window.removeEventListener('scroll', handleScroll);  // Remove o listener após a ativação
+        }
+    };
+
+    useEffect(() => {
+        // Adiciona o event listener para o scroll
+        window.addEventListener('scroll', handleScroll);
+
+        // Remove o event listener quando o componente for desmontado
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
     // Requisição dos dados para popular o slider
     useEffect(() => {
         axios.get('http://localhost:3001/api/slider')
@@ -53,9 +93,9 @@ function CustomSlider() {
             <div className="slider-container">
                 <Slider {...settings} className="custom-slider">
                     {data.map((d) => (
-                        <div className="custom-card" key={d.id}>
-                            <div className="card-image" style={{ backgroundImage: `url(${d.image})` }}></div>
-                            <div className="card-content">
+                        <div className="custom-card animate" key={d.id}>
+                            <div className="card-image animate" style={{ backgroundImage: `url(${d.image})` }}></div>
+                            <div className="card-content animate">
                                 <h2>{d.title}</h2>
                                 <p>{d.description}</p>
                             </div>

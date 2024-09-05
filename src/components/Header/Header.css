@@ -1,3 +1,4 @@
+/* Cabeçalho */
 .header {
   display: flex;
   justify-content: space-between;
@@ -8,8 +9,10 @@
   background-color: #F9FAFB;
   position: fixed;
   z-index: 2 !important;
+  animation: slideDown 0.8s ease-out;
 }
 
+/* Texto do logo */
 .logo-text {
   width: 180px;
   height: 61px;
@@ -17,6 +20,7 @@
   margin-left: 150px;
 }
 
+/* Links de navegação */
 .nav-links {
   display: flex;
   gap: 40px;
@@ -28,55 +32,151 @@
   font-weight: 600;
   text-decoration: none;
   color: black;
+  transition: color 0.3s, transform 0.3s;
 }
 
-/* ----- RESPONSIVIDADE ----- */
+.nav-links a:hover {
+  color: #1442e5; /* Muda a cor ao passar o mouse */
+  transform: scale(1.1); /* Aumenta ligeiramente o tamanho */
+}
 
-/* Tablets */
-@media (min-width: 600px) and (max-width: 1023px) {
-  .header {
-      padding: 0 30px;
-      height: 90px;
+/* Ícone de menu hambúrguer */
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.menu-icon div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 3px 0;
+  transition: background-color 0.3s;
+}
+
+.menu-icon div:hover {
+  background-color: #1442e5; /* Muda a cor ao passar o mouse */
+}
+
+/* Menu ativo em telas pequenas */
+.nav-links.active {
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 99px;
+  background-color: #F9FAFB;
+  width: 110% !important;
+  padding: 20px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  animation: slideIn 0.5s ease-out;
+}
+
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20%);
   }
-  
-  .logo-text {
-      margin-left: 100px;
-  }
-  
-  .nav-links a {
-      font-size: 20px;
-      gap: 30px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-/* Desktop */
-@media (min-width: 1024px) {
-  .header {
-      padding: 0 40px;
-      height: 100px;
-  }
-  
-  .logo-text {
-      font-size: 32px;
-  }
-  
-  .nav-links a {
-      font-size: 24px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 599px) {
-  .header {
-      justify-content: center;
-      padding: 0 20px;
-  }
-  
-  .logo-text {
-      margin: 0;
-  }
-  
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
   .nav-links {
-      display: none; 
+    display: none;
+  }
+
+  .menu-icon {
+    display: flex;
+  }
+}
+
+/* Responsividade para dispositivos móveis (360 x 640) */
+@media (max-width: 360px) {
+  .logo-text {
+    margin-left: 20px;
+    width: 150px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+}
+
+/* Responsividade para dispositivos móveis (375 x 667) */
+@media (max-width: 375px) {
+  .logo-text {
+    margin-left: 20px;
+    width: 160px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+}
+
+/* Responsividade para dispositivos móveis (360 x 720) */
+@media (max-width: 360px) {
+  .logo-text {
+    margin-left: 20px;
+    width: 150px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+}
+
+/* Responsividade para iPhone X (375 x 812) */
+@media (max-width: 375px) {
+  .logo-text {
+    margin-left: 20px;
+    width: 160px;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+}
+
+/* Responsividade para Pixel 2 (411 x 731) */
+@media (max-width: 411px) {
+  .logo-text {
+    margin-left: 30px;
+    width: 170px;
+  }
+
+  .nav-links a {
+    font-size: 20px;
+  }
+}
+
+/* Responsividade para tablet (768 x 1024) */
+@media (max-width: 768px) {
+  .logo-text {
+    margin-left: 40px;
+    width: 180px;
+  }
+
+  .nav-links a {
+    font-size: 22px;
+  }
+}
+
+/* Responsividade para laptops (1366 x 768) */
+@media (max-width: 1366px) {
+  .logo-text {
+    margin-left: 50px;
+    width: 180px;
+  }
+
+  .nav-links a {
+    font-size: 24px;
   }
 }

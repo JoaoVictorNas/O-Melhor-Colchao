@@ -1,21 +1,30 @@
+/* Texto informativo principal */
 .info-text {
   padding-top: 30px;
   text-align: center;
   font-size: 32px;
   font-weight: 600;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
 }
 
+/* Sub-informação */
 .subinfo {
   display: flex;
   justify-content: center;
   font-size: 24px;
   color: #414040;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s;
 }
 
+/* Seção de critérios */
 .criteria-section {
   padding: 40px 0;
 }
 
+/* Lista de critérios */
 .criteria-list {
   display: flex;
   justify-content: space-between;
@@ -25,31 +34,68 @@
   gap: 40px;
 }
 
+/* Item individual de critério */
 .criteria-item {
   padding-top: 25px;
   width: 30%;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
 }
 
+.criteria-item:nth-child(1) {
+  animation-delay: 0.7s;
+}
+
+.criteria-item:nth-child(2) {
+  animation-delay: 0.9s;
+}
+
+.criteria-item:nth-child(3) {
+  animation-delay: 1.1s;
+}
+
+/* Ícone do critério */
 .criteria-icon {
   margin-right: 10px;
   width: 24px;
   height: 24px;
 }
 
+/* Título do critério */
 .criteria-title {
   font-size: 24px;
   font-weight: 600;
   margin-top: 10px;
   padding-bottom: 10px;
+  transition: color 0.3s;
 }
 
+.criteria-title:hover {
+  color: #1C5D99;
+}
+
+/* Descrição do critério */
 .criteria-description {
   font-size: 18px;
   margin-top: 10px;
   font-weight: 400;
 }
 
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* Responsividade */
+
+/* Responsividade para telas de até 1200px */
 @media (max-width: 1200px) {
   .criteria-list {
     padding: 0 80px;
@@ -57,7 +103,16 @@
   }
 }
 
+/* Responsividade para telas de até 992px */
 @media (max-width: 992px) {
+  .info-text {
+    font-size: 30px;
+  }
+
+  .subinfo {
+    font-size: 22px;
+  }
+
   .criteria-list {
     padding: 0 50px;
     flex-direction: column;
@@ -78,6 +133,7 @@
   }
 }
 
+/* Responsividade para tablets */
 @media (max-width: 768px) {
   .info-text {
     font-size: 28px;
@@ -98,6 +154,7 @@
   }
 }
 
+/* Responsividade para dispositivos móveis */
 @media (max-width: 576px) {
   .info-text {
     font-size: 24px;

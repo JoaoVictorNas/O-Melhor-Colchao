@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
@@ -15,6 +15,12 @@ function ScrollToTop() {
 
 function Header() {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Função para alternar o menu hambúrguer
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
 
   // Função para rolar suavemente até a seção alvo
   const handleScroll = (event, targetId, path = '/') => {
@@ -30,22 +36,32 @@ function Header() {
         targetElement.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+
+    // Fecha o menu após o clique em uma opção
+    setMenuOpen(false);
   };
 
   return (
     <>
       <ScrollToTop />
       <header className="header">
-        <a href="/" >
-          <img 
-            src='https://bfbaby.com.br/up/logo.png'
-            alt='Logo O Melhor Colchão'
+        <a href="/">
+          <img
+            src="https://bfbaby.com.br/up/logo.png"
+            alt="Logo O Melhor Colchão"
             className="logo-text"
           />
         </a>
-        <nav className="nav-links">
-          <a href="/" onClick={(e) => handleScroll(e, 'Compare', '/')}>Ranking</a>
-          <Link to='/blog'>Blog</Link>
+        {/* Ícone do menu hambúrguer */}
+        <div className="menu-icon" onClick={toggleMenu}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        {/* Links de navegação, visíveis apenas se menuOpen for true em telas menores */}
+        <nav className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <a href="/" onClick={(e) => handleScroll(e, 'compare', '/')}>Ranking</a>
+          <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
           <a href="/" onClick={(e) => handleScroll(e, 'faq', '/')}>Perguntas Frequentes</a>
         </nav>
       </header>

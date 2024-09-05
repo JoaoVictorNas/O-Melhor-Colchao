@@ -135,6 +135,33 @@
     visibility: hidden;
 }
 
+/* Animação de fade-in suave */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Leve deslocamento de baixo para cima */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Aplica a animação a todos os elementos */
+.title-blog, .blogs-content, .blog-card {
+    opacity: 0; /* Começa invisível */
+    animation: fadeIn 0.8s ease-out forwards; /* Aplica a animação ao carregar */
+}
+
+/* Pode-se ajustar o tempo de atraso para elementos diferentes */
+.blogs-content {
+    animation-delay: 0.2s; /* Pequeno atraso para uma animação em sequência */
+}
+
+.blog-card {
+    animation-delay: 0.4s; /* Pequeno atraso para os cards */
+}
+
 /* ----- Responsividade para tablets ----- */
 @media (max-width: 768px) {
     .title-blog {
