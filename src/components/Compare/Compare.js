@@ -10,7 +10,6 @@ function Compare() {
     const isElementVisible = (el) => {
         const rect = el.getBoundingClientRect();
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
-        const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
 
         return (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
     };

@@ -27,10 +27,11 @@ function BlogCarrossel() {
     // Listener de scroll para ativar animações
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Chamando a função para definir o estado inicial das animações
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [handleScroll]); // Adicione handleScroll aqui
 
     // Busca os blogs ao carregar o componente
     useEffect(() => {
