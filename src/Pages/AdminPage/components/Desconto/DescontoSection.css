@@ -1,11 +1,13 @@
 .desconto-section {
+    margin-left: 225px; 
+    margin-top: 100px;
     background: #fff;
-    padding: 20px;
+    padding: 25px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
     border-left: 5px solid #4758E0;
 }
+
 
 .desconto-edit-section {
     background: #f9f9f9;

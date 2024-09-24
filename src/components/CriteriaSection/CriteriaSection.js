@@ -7,7 +7,7 @@ function CriteriaSection() {
 
   // Busca os critérios ao carregar o componente
   useEffect(() => {
-    axios.get('http://localhost:3001/api/criterios')
+    axios.get('http://localhost:3003/api/critMarca')
       .then(response => {
         setCriterios(response.data);
       })
@@ -29,10 +29,10 @@ function CriteriaSection() {
                 alt="Ícone critério" 
                 className="criteria-icon" 
               />
-              {criterio.title}
+              {criterio.titulo}
             </h3>
             <p className="criteria-description">
-              {criterio.description}
+              {criterio.descricao}
             </p>
           </div>
         ))}

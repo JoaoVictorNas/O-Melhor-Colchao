@@ -1,13 +1,17 @@
 .admin-sidebar {
+    position: fixed; /* Corrigir o posicionamento */
+    z-index: 1000; /* Certifique-se de que o sidebar tenha um valor maior que o conteúdo */
     width: 205px;
+    height: 100vh; /* Para garantir que cubra toda a altura */
     background-color: #AEB6FB;
     padding: 20px;
     color: white;
-    top: 70px;
-    bottom: 0;
+    top: 70px; /* Ajuste isso para evitar o corte de conteúdo */
     left: 0;
     overflow-y: auto;
+    display: block;
 }
+
 
 .admin-menu {
     list-style: none;
@@ -24,12 +28,7 @@
     transition: color 0.3s, border-left 0.3s, padding-left 0.3s;
 }
 
-.admin-menu-item:hover {
-    color: white;
-    border-left: 4px solid white;
-    padding-left: 10px;
-}
-
+.admin-menu-item:hover,
 .admin-menu-item.selected {
     color: white;
     border-left: 4px solid white;

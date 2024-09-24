@@ -11,11 +11,7 @@ const ReviewSection = ({ reviews, updateReview, handleSave }) => {
     };
 
     const handleQuillChange = (id, field, content) => {
-        // Verifica se o valor atual é diferente do novo valor para evitar loops infinitos
-        const currentReview = reviews.find(review => review.id === id);
-        if (currentReview[field] !== content) {
-            updateReview(id, field, content);
-        }
+        updateReview(id, field, content);
     };
 
     return (
@@ -27,14 +23,14 @@ const ReviewSection = ({ reviews, updateReview, handleSave }) => {
                         className={`review-header ${activeIndex === index ? 'active' : ''}`} 
                         onClick={() => toggleAccordion(index)}
                     >
-                        <h3 className="review-title">Review {index + 1}: {review.product}</h3>
+                        <h3 className="review-title">Review {index + 1}: {review.produto}</h3>
                     </div>
                     {activeIndex === index && (
                         <div className="review-content">
                             <input
                                 type="text"
-                                value={review.product}
-                                onChange={(e) => updateReview(review.id, 'product', e.target.value)}
+                                value={review.produto}
+                                onChange={(e) => updateReview(review.id, 'produto', e.target.value)}
                                 className="review-edit-input"
                                 placeholder="Nome do Produto"
                             />

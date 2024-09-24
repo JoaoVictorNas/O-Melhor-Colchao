@@ -1,7 +1,7 @@
 import React from 'react';
 import './AdminSidebar.css';
 
-const AdminSidebar = ({ setSelectedSection }) => {
+const AdminSidebar = ({ setSelectedSection, selectedSection }) => {
     const menuItems = [
         { name: 'Home', section: 'home' },
         { name: 'Critérios de Marca', section: 'criterios' },
@@ -9,9 +9,9 @@ const AdminSidebar = ({ setSelectedSection }) => {
         { name: 'Órgãos Regulamentadores', section: 'orgaos' },
         { name: 'Ranking', section: 'compare' },
         { name: 'Desconto', section: 'desconto' },
-        { name: 'Blogs', section: 'blogs' },
+        { name: 'Blog', section: 'blog' },
         { name: 'FAQs', section: 'faq' },
-        { name: 'Review', section: 'review'}
+        { name: 'Review', section: 'review' }
     ];
 
     return (
@@ -21,7 +21,7 @@ const AdminSidebar = ({ setSelectedSection }) => {
                     <li 
                         key={item.section} 
                         onClick={() => setSelectedSection(item.section)}
-                        className="admin-menu-item"
+                        className={`admin-menu-item ${selectedSection === item.section ? 'selected' : ''}`}
                     >
                         {item.name}
                     </li>

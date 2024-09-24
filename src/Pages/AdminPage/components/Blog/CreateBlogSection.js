@@ -3,12 +3,12 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './CreateBlogSection.css';
 
-const CreateBlogSection = ({ onCreate }) => {
+const CreateBlogection = ({ onCreate }) => {
     const [newBlog, setNewBlog] = useState({
         slug: '',
-        title: '',
-        description: '',
-        content: '',
+        titulo: '',
+        descricao: '',
+        conteudo: '',
     });
 
     // Atualiza o slug quando o usuário digita
@@ -24,22 +24,22 @@ const CreateBlogSection = ({ onCreate }) => {
     };
 
     // Atualiza o conteúdo do editor de texto rico
-    const handleContentChange = (content) => {
-        setNewBlog({ ...newBlog, content });
+    const handleContentChange = (conteudo) => {
+        setNewBlog({ ...newBlog, conteudo });
     };
 
     // Função para criar um novo blog
     const handleCreateBlog = async () => {
         const blogToCreate = {
             ...newBlog,
-            image: `https://bfbaby.com.br/up/blog-${Date.now()}.png`,
-            imageBanner: `https://bfbaby.com.br/up/materia-${Date.now()}.png`,
-            image2: `https://bfbaby.com.br/up/pageblog-${Date.now()}.png`,
-            link: `/materia/${newBlog.slug}`
+            url_Imagem: `https://bfbaby.com.br/up/blog-${Date.now()}.png`,
+            url_Banner: `https://bfbaby.com.br/up/materia-${Date.now()}.png`,
+            url_Imagem2: `https://bfbaby.com.br/up/pageblog-${Date.now()}.png`,
+            caminho: `/materia/${newBlog.slug}`
         };
 
         try {
-            const response = await fetch('http://localhost:3001/api/blogs', {
+            const response = await fetch('http://localhost:3003/api/Blog', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -52,9 +52,9 @@ const CreateBlogSection = ({ onCreate }) => {
                 onCreate(data);
                 setNewBlog({
                     slug: '',
-                    title: '',
-                    description: '',
-                    content: '',
+                    titulo: '',
+                    descricao: '',
+                    conteudo: '',
                 });
                 alert('Blog criado com sucesso!');
             } else {
@@ -81,21 +81,21 @@ const CreateBlogSection = ({ onCreate }) => {
                 />
                 <input
                     type="text"
-                    name="title"
-                    value={newBlog.title}
+                    name="titulo"
+                    value={newBlog.titulo}
                     onChange={handleInputChange}
                     className="form-control"
                     placeholder="Título"
                 />
                 <textarea
-                    name="description"
-                    value={newBlog.description}
+                    name="descricao"
+                    value={newBlog.descricao}
                     onChange={handleInputChange}
                     className="form-control"
                     placeholder="Descrição"
                 />
                 <ReactQuill
-                    value={newBlog.content}
+                    value={newBlog.conteudo}
                     onChange={handleContentChange}
                     placeholder="Escreva a matéria do blog aqui..."
                     className="blog-quill-editor"
@@ -108,4 +108,4 @@ const CreateBlogSection = ({ onCreate }) => {
     );
 };
 
-export default CreateBlogSection;
+export default CreateBlogection;

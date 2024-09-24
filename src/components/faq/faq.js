@@ -17,7 +17,7 @@ function Faq() {
 
     const fetchFaq = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/faq');
+            const response = await axios.get('http://localhost:3003/api/faq');
             setFaq(response.data);
         } catch (error) {
             console.error("Erro ao buscar Faq", error);

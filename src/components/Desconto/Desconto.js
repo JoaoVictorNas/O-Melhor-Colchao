@@ -3,29 +3,30 @@ import axios from 'axios';
 import './Desconto.css';
 
 function Desconto() {
-    const [descontoData, setDescontoData] = useState({ description: '', botao: '' });
+    const [descontoData, setDescontoData] = useState({
+        description: '',
+        botao: '',
+        image: ''
+    });
 
-    // Função para verificar se o elemento está visível na viewport
     const isElementVisible = (el) => {
         const rect = el.getBoundingClientRect();
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
         return (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
     };
 
-    // Função para adicionar animação quando o componente estiver visível
-    const handleScroll = () => {
-        const section = document.querySelector('.simple-section');
-        if (section && isElementVisible(section)) {
-            const animatedElements = document.querySelectorAll('.animate');
-            animatedElements.forEach(el => {
-                el.classList.add('animate-visible');
-            });
-            window.removeEventListener('scroll', handleScroll); // Remove o listener após a ativação
-        }
-    };
-
-    // Adiciona o listener de scroll para detectar quando a seção está visível
     useEffect(() => {
+        const handleScroll = () => {
+            const section = document.querySelector('.simple-section');
+            if (section && isElementVisible(section)) {
+                const animatedElements = document.querySelectorAll('.animate');
+                animatedElements.forEach(el => {
+                    el.classList.add('animate-visible');
+                });
+                window.removeEventListener('scroll', handleScroll);
+            }
+        };
+
         window.addEventListener('scroll', handleScroll);
 
         return () => {
@@ -33,14 +34,19 @@ function Desconto() {
         };
     }, []);
 
-    // Requisição dos dados do desconto ao carregar o componente
+    // Requisição dos dados de desconto da API
     useEffect(() => {
-        axios.get('http://localhost:3001/api/desconto')
+        axios.get('http://localhost:3003/api/desconto')
             .then(response => {
-                setDescontoData(response.data[0]);
+                const data = response.data[0];
+                setDescontoData({
+                    description: data.descricao,
+                    botao: data.botao_Texto,
+                    image: data.url_Imagem
+                });
             })
             .catch(error => {
-                console.error("Erro ao buscar dados do desconto:", error);
+                console.error("Erro ao buscar dados de desconto:", error);
             });
     }, []);
 

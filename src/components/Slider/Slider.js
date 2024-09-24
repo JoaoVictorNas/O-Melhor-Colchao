@@ -29,16 +29,16 @@ function CustomSlider() {
         });
     };
 
-    // Função para monitorar a visibilidade do container do slider
-    const handleScroll = () => {
-        const sliderContainer = document.querySelector('.slider-container');  // Pega o container do slider
-        if (sliderContainer && isSliderVisible(sliderContainer)) {
-            activateAllAnimations();  // Ativa a animação em todos os elementos
-            window.removeEventListener('scroll', handleScroll);  // Remove o listener após a ativação
-        }
-    };
-
+    // Listener de scroll para monitorar a visibilidade do container do slider
     useEffect(() => {
+        const handleScroll = () => {
+            const sliderContainer = document.querySelector('.slider-container');  // Pega o container do slider
+            if (sliderContainer && isSliderVisible(sliderContainer)) {
+                activateAllAnimations();  // Ativa a animação em todos os elementos
+                window.removeEventListener('scroll', handleScroll);  // Remove o listener após a ativação
+            }
+        };
+
         // Adiciona o event listener para o scroll
         window.addEventListener('scroll', handleScroll);
 
@@ -46,11 +46,11 @@ function CustomSlider() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, []);  // Não precisa de dependências, pois handleScroll está dentro do useEffect
 
     // Requisição dos dados para popular o slider
     useEffect(() => {
-        axios.get('http://localhost:3001/api/slider')
+        axios.get('http://localhost:3003/api/critColch')
             .then(response => {
                 setData(response.data);
             })
@@ -94,10 +94,10 @@ function CustomSlider() {
                 <Slider {...settings} className="custom-slider">
                     {data.map((d) => (
                         <div className="custom-card animate" key={d.id}>
-                            <div className="card-image animate" style={{ backgroundImage: `url(${d.image})` }}></div>
+                            <div className="card-image animate" style={{ backgroundImage: `url(${d.url_Imagem})` }}></div>
                             <div className="card-content animate">
-                                <h2>{d.title}</h2>
-                                <p>{d.description}</p>
+                                <h2>{d.titulo}</h2>
+                                <p>{d.descricao}</p>
                             </div>
                         </div>
                     ))}

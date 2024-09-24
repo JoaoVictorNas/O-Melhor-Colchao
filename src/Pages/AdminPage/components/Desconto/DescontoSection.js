@@ -9,15 +9,15 @@ const DescontoSection = ({ descontoData, setDescontoData, handleSave }) => {
                 <div className="desconto-edit-section">
                     <h3 className="desconto-item-label">Desconto</h3>
                     <textarea
-                        value={descontoData.description}
-                        onChange={(e) => setDescontoData({ ...descontoData, description: e.target.value })}
+                        value={descontoData.descricao}
+                        onChange={(e) => setDescontoData({ ...descontoData, descricao: e.target.value })}
                         className="desconto-edit-textarea"
                         placeholder="Descrição"
                     />
                     <input
                         type="text"
-                        value={descontoData.botao}
-                        onChange={(e) => setDescontoData({ ...descontoData, botao: e.target.value })}
+                        value={descontoData.botao_Texto}
+                        onChange={(e) => setDescontoData({ ...descontoData, botao_Texto: e.target.value })}
                         className="desconto-edit-input"
                         placeholder="Texto do Botão"
                     />

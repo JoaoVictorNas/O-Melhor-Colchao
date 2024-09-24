@@ -18,31 +18,30 @@ function Reguladores() {
         return (vertInView && horInView);
     };
 
-    // Função para adicionar animação quando o componente estiver visível
-    const handleScroll = () => {
-        const animatedElements = document.querySelectorAll('.animate');
-        animatedElements.forEach((el) => {
-            if (isElementVisible(el)) {
-                el.classList.add('animate-visible');
-            }
-        });
-    };
-
-    // Listener de scroll
+    // Listener de scroll para ativar as animações
     useEffect(() => {
+        const handleScroll = () => {
+            const animatedElements = document.querySelectorAll('.animate');
+            animatedElements.forEach((el) => {
+                if (isElementVisible(el)) {
+                    el.classList.add('animate-visible');
+                }
+            });
+        };
+
         window.addEventListener('scroll', handleScroll);
 
         // Remove o event listener quando o componente for desmontado
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, []); // Nenhuma dependência adicional é necessária
 
     // Requisição dos dados dos órgãos reguladores ao carregar o componente
     useEffect(() => {
-        axios.get('http://localhost:3001/api/orgaos')
+        axios.get('http://localhost:3003/api/orgaos') // Rota do backend que retorna os dados do MySQL
             .then(response => {
-                setOrgaos(response.data);
+                setOrgaos(response.data); // Atualiza o estado com os dados vindos do MySQL
             })
             .catch(error => {
                 console.error("Erro ao buscar órgãos reguladores:", error);
@@ -59,13 +58,13 @@ function Reguladores() {
                         <h3 className='reguladores-title'>
                             <img 
                                 src={`https://bfbaby.com.br/up/orgao-${orgao.id}.png`} 
-                                alt={`Ícone ${orgao.title}`} 
+                                alt={`Ícone ${orgao.titulo}`} 
                                 className="reguladores-icon" 
                             />
-                            {orgao.title}
+                            {orgao.titulo}
                         </h3>
                         <p className='reguladores-description'>
-                            {orgao.description}
+                            {orgao.descricao}
                         </p>
                     </div>
                 ))}

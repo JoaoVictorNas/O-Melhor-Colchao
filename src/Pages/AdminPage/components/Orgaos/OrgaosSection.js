@@ -17,20 +17,20 @@ const ReguladoresAdminSection = ({ orgaos, updateOrgao, handleSave }) => {
                         className={`reguladores-admin-header ${activeIndex === index ? 'active' : ''}`} 
                         onClick={() => toggleAccordion(index)}
                     >
-                        <h3 className="reguladores-admin-orgao-title">Órgão Regulamentador {index + 1}: {orgao.title}</h3>
+                        <h3 className="reguladores-admin-orgao-title">Órgão Regulamentador {index + 1}: {orgao.titulo}</h3>
                     </div>
                     {activeIndex === index && (
                         <div className="reguladores-admin-content">
                             <input
                                 type="text"
-                                value={orgao.title}
-                                onChange={(e) => updateOrgao(orgao.id, 'title', e.target.value)}
+                                value={orgao.titulo}
+                                onChange={(e) => updateOrgao(orgao.id, 'titulo', e.target.value)}
                                 className="reguladores-admin-edit-input"
                                 placeholder="Título"
                             />
                             <textarea
-                                value={orgao.description}
-                                onChange={(e) => updateOrgao(orgao.id, 'description', e.target.value)}
+                                value={orgao.descricao}
+                                onChange={(e) => updateOrgao(orgao.id, 'descricao', e.target.value)}
                                 className="reguladores-admin-edit-textarea"
                                 placeholder="Descrição"
                             />

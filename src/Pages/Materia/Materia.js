@@ -19,7 +19,7 @@ const Materia = () => {
 
     // Busca a matéria correspondente pelo slug
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/blogs/${slug}`)
+        axios.get(`http://localhost:3003/api/blogs/${slug}`) // Atualize para a porta correta (3003)
             .then(response => setMateria(response.data))
             .catch(error => setError('Erro ao carregar a matéria: ' + error.message));
     }, [slug]);
@@ -37,11 +37,11 @@ const Materia = () => {
             <Header />
             <div className="blog-post">
                 <img onClick={handleBackClick} src="https://bfbaby.com.br/up/voltar.png" alt="voltar" className="back" />
-                <h1 className="title">{materia.title}</h1>
-                <div className="image-placeholder" style={{ backgroundImage: `url(${materia.imageBanner})` }}></div>
+                <h1 className="title">{materia.titulo}</h1>
+                <div className="image-placeholder" style={{ backgroundImage: `url(${materia.url_Banner})` }}></div>
                 <hr />
                 <div className="content">
-                    <div dangerouslySetInnerHTML={{ __html: materia.content }} />
+                    <div dangerouslySetInnerHTML={{ __html: materia.conteudo }} />
                 </div>
             </div>
             <BlogCarrossel />

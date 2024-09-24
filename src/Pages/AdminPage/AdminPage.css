@@ -1,25 +1,14 @@
-/* Layout Principal */
 .admin-layout {
     display: flex;
-    height: 100vh;
-    margin-top: 65px;
-    background-color: #f7f9fc;
+    margin-top: 70px;
 }
 
-/* Conteúdo Principal */
 .admin-content {
     flex: 1;
+    margin-left: 225px; /* Isso garante que o conteúdo seja empurrado para a direita */
     padding: 20px;
     background-color: #ffffff;
     overflow-y: auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-}
-
-/* Texto de boas-vindas */
-.admin-home-text {
-    font-size: 1.5rem;
-    color: #333;
-    text-align: center;
-    margin-top: 50px;
 }

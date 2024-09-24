@@ -12,7 +12,7 @@ const Review = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/api/review/${url}`)
+        axios.get(`http://localhost:3003/api/review/${url}`)
             .then(response => setReview(response.data))
             .catch(error => setError('Erro ao carregar o review: ' + error.message));
     }, [url]);    

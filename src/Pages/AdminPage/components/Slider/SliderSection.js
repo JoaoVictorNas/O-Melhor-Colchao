@@ -17,20 +17,20 @@ const SliderSection = ({ sliderData, updateSlider, handleSave }) => {
                         className={`slider-header ${activeIndex === index ? 'active' : ''}`} 
                         onClick={() => toggleAccordion(index)}
                     >
-                        <h3 className="slider-title">Critério {index + 1}: {slider.title}</h3>
+                        <h3 className="slider-title">Critério {index + 1}: {slider.titulo}</h3>
                     </div>
                     {activeIndex === index && (
                         <div className="slider-content">
                             <input
                                 type="text"
-                                value={slider.title}
-                                onChange={(e) => updateSlider(slider.id, 'title', e.target.value)}
+                                value={slider.titulo}
+                                onChange={(e) => updateSlider(slider.id, 'titulo', e.target.value)}
                                 className="slider-edit-input"
                                 placeholder="Título"
                             />
                             <textarea
-                                value={slider.description}
-                                onChange={(e) => updateSlider(slider.id, 'description', e.target.value)}
+                                value={slider.descricao}
+                                onChange={(e) => updateSlider(slider.id, 'descricao', e.target.value)}
                                 className="slider-edit-textarea"
                                 placeholder="Descrição"
                             />
@@ -39,7 +39,7 @@ const SliderSection = ({ sliderData, updateSlider, handleSave }) => {
                 </div>
             ))}
             <div className="button-group">
-                <button onClick={() => handleSave('slider')} className="save-button">Salvar</button>
+                <button onClick={() => handleSave('critColch')} className="save-button">Salvar</button>
             </div>
         </div>
     );

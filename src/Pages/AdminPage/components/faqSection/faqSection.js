@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './faqSection.css';
 
-const FaqSection = ({ faq, setFaqs }) => {
+const FaqSection = ({ faq, setFaqs, handleSave }) => { // Adiciona handleSave aqui
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleVisibility = (index) => {
@@ -13,7 +13,7 @@ const FaqSection = ({ faq, setFaqs }) => {
       i === index ? { ...item, [field]: value } : item
     );
     setFaqs(updatedFaq);
-  }
+  };
 
   return (
     <div className="faq-section">
@@ -43,7 +43,7 @@ const FaqSection = ({ faq, setFaqs }) => {
         </div>
       ))}
       <div className="button-group">
-        <button className="save-button">Salvar</button>
+        <button onClick={() => handleSave('faq')} className="save-button">Salvar</button> {/* Chamando handleSave('faq') */}
       </div>
     </div>
   );

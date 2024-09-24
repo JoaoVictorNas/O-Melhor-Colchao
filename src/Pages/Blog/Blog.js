@@ -11,7 +11,7 @@ function Blog() {
 
     // Busca os blogs ao carregar o componente
     useEffect(() => {
-        axios.get('http://localhost:3001/api/blogs')
+        axios.get('http://localhost:3003/api/blog') // Atualize a porta para 3003
             .then(response => {
                 const blogsData = response.data.sort((a, b) => b.id - a.id); // Ordena em ordem decrescente
                 const latest = blogsData[0]; // O blog mais recente
@@ -33,10 +33,10 @@ function Blog() {
                 </a>
                 <h1 className="title-blog">Blog</h1>
                 <div className="blogs-content">
-                    <div className="images-placeholder-blog" style={{ backgroundImage: `url(${latestBlog.image2 || ''})` }}></div>
+                    <div className="images-placeholder-blog" style={{ backgroundImage: `url(${latestBlog.url_Imagem2 || ''})` }}></div>
                     <div className="text-content">
-                        <h2>{latestBlog.title || 'Título do Blog'}</h2>
-                        <p>{latestBlog.description || 'Descrição do Blog'}</p>
+                        <h2>{latestBlog.titulo || 'Título do Blog'}</h2>
+                        <p>{latestBlog.descricao || 'Descrição do Blog'}</p>
                         <Link to={`/materia/${latestBlog.slug}`}>
                             <p className="leiaMais">Leia Mais</p>
                         </Link>
@@ -46,10 +46,10 @@ function Blog() {
                 <div className="blog-cards-container">
                     {blogs.map((blog) => (
                         <div key={blog.slug} className="blog-card">
-                            <div className="blog-card-image" style={{ backgroundImage: `url(${blog.image})` }}></div>
+                            <div className="blog-card-image" style={{ backgroundImage: `url(${blog.url_Imagem})` }}></div>
                             <div className="blog-card-content">
-                                <h2>{blog.title}</h2>
-                                <p>{blog.description}</p>
+                                <h2>{blog.titulo}</h2>
+                                <p>{blog.descricao}</p>
                                 <Link to={`/materia/${blog.slug}`}>
                                     <p className="blog-read-more">Leia Mais</p>
                                 </Link>

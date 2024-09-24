@@ -23,28 +23,28 @@ function Compare() {
     };
 
     // Listener de scroll para ativar animações
-    const handleScroll = () => {
-        const firstElement = document.querySelector('.card'); // Pega o primeiro elemento do slider
-        if (firstElement && isElementVisible(firstElement)) {
-            activateAllAnimations();  // Ativa a animação em todos os elementos
-            window.removeEventListener('scroll', handleScroll);  // Remove o listener de scroll após a ativação
-        }
-    };
-
     useEffect(() => {
+        const handleScroll = () => {
+            const firstElement = document.querySelector('.card'); // Pega o primeiro elemento do slider
+            if (firstElement && isElementVisible(firstElement)) {
+                activateAllAnimations();  // Ativa a animação em todos os elementos
+                window.removeEventListener('scroll', handleScroll);  // Remove o listener de scroll após a ativação
+            }
+        };
+
         window.addEventListener('scroll', handleScroll);
 
         // Remove o event listener quando o componente for desmontado
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, []); // Não precisa de dependências aqui, pois handleScroll está dentro do useEffect
 
     // Requisição dos dados dos itens do compare
     useEffect(() => {        
         const fetchCompareItems = async () => {
-            try{
-                const response = await axios.get('http://localhost:3001/api/compare');
+            try {
+                const response = await axios.get('http://localhost:3003/api/compare'); // Atualize a porta
                 setCompareItems(response.data);
             } catch (error) {
                 console.error("Erro ao buscar itens do Compare:", error);
@@ -93,7 +93,7 @@ function Compare() {
                         <a href={item.site}>
                             <button className='primary-button'>Ver produto</button>
                         </a>
-                        <Link to={`/review/${item.url}`}>
+                        <Link to={`/review/${item.slug}`}>
                             <button className="secondary-button">Saiba mais</button>
                         </Link>
                     </div>

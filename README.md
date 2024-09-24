@@ -1,6 +1,9 @@
 ### README.md para o Projeto **O Melhor Colchão**
 
 ---
+<!-- Nome banco de dados: db_melhor_colc -->
+<!-- Senha do banco: a426pRcVE@n@BL -->
+<!-- Endereço do banco: db_melhor_colc.vpshost2821.mysql.dbaas.com.br  -->
 
 # O Melhor Colchão
 

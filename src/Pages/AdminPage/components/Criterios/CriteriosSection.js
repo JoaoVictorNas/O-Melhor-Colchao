@@ -17,20 +17,20 @@ const CriteriosSection = ({ criterios, updateCriterio, handleSave }) => {
                         className={`criterio-header ${activeIndex === index ? 'active' : ''}`} 
                         onClick={() => toggleAccordion(index)}
                     >
-                        <h3 className="criterio-title">Critério {index + 1}: {criterio.title}</h3>
+                        <h3 className="criterio-title">Critério {index + 1}: {criterio.titulo}</h3>
                     </div>
                     {activeIndex === index && (
                         <div className="criterio-content">
                             <input
                                 type="text"
-                                value={criterio.title}
-                                onChange={(e) => updateCriterio(criterio.id, 'title', e.target.value)}
+                                value={criterio.titulo}
+                                onChange={(e) => updateCriterio(criterio.id, 'titulo', e.target.value)}
                                 className="criterio-edit-input"
                                 placeholder="Título"
                             />
                             <textarea
-                                value={criterio.description}
-                                onChange={(e) => updateCriterio(criterio.id, 'description', e.target.value)}
+                                value={criterio.descricao}
+                                onChange={(e) => updateCriterio(criterio.id, 'descricao', e.target.value)}
                                 className="criterio-edit-textarea"
                                 placeholder="Descrição"
                             />

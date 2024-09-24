@@ -14,30 +14,29 @@ function BlogCarrossel() {
         return (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
     };
 
-    // Função para adicionar animação quando o componente estiver visível
-    const handleScroll = () => {
-        const elements = document.querySelectorAll('.animate');
-        elements.forEach(el => {
-            if (isElementVisible(el)) {
-                el.classList.add('animate-visible');
-            }
-        });
-    };
-
     // Listener de scroll para ativar animações
     useEffect(() => {
+        const handleScroll = () => {
+            const elements = document.querySelectorAll('.animate');
+            elements.forEach(el => {
+                if (isElementVisible(el)) {
+                    el.classList.add('animate-visible');
+                }
+            });
+        };
+
         window.addEventListener('scroll', handleScroll);
         handleScroll(); // Chamando a função para definir o estado inicial das animações
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [handleScroll]); // Adicione handleScroll aqui
+    }, []); // Não precisa de dependências aqui, pois handleScroll está dentro do useEffect
 
     // Busca os blogs ao carregar o componente
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:3001/api/blogs');
+                const response = await axios.get('http://localhost:3003/api/blog');
                 setBlogs(response.data);
             } catch (error) {
                 console.error('Erro ao carregar os blogs:', error);
@@ -81,10 +80,10 @@ function BlogCarrossel() {
                 <Slider {...settings} className="custom-slider-blog">
                     {blogs.map(blog => (
                         <div key={blog.slug} className="custom-card-blog animate">
-                            <div className="card-image-blog" style={{ backgroundImage: `url(${blog.image})` }}></div>
+                            <div className="card-image-blog" style={{ backgroundImage: `url(${blog.url_Imagem})` }}></div>
                             <div className="card-content-blog">
-                                <h2>{blog.title}</h2>
-                                <p>{blog.description}</p>
+                                <h2>{blog.titulo}</h2>
+                                <p>{blog.descricao}</p>
                                 <Link to={`/materia/${blog.slug}`}>
                                     <p id="faq" className="red-more">Leia Mais</p>
                                 </Link>
