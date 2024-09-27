@@ -26,7 +26,7 @@ const AdminPage = () => {
   useEffect(() => {
     const fetchDescontoData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/desconto');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=desconto');
         setDescontoData(response.data[0]);
       } catch (error) {
         console.error("Erro ao buscar dados de desconto:", error);
@@ -35,7 +35,7 @@ const AdminPage = () => {
 
     const fetchSliderData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/critColch');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=critColch');
         setSliderData(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados do critColch:", error);
@@ -44,7 +44,7 @@ const AdminPage = () => {
 
     const fetchCriteriosData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/critMarca');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=critMarca');
         setCriteriosData(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados dos critérios de marca:", error);
@@ -53,7 +53,7 @@ const AdminPage = () => {
 
     const fetchOrgaosData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/orgaos');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=orgaos');
         setOrgaosData(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados dos órgãos regulamentadores:", error);
@@ -62,7 +62,7 @@ const AdminPage = () => {
 
     const fetchCompareItems = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/compare');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=compare');
         setCompareItems(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados do compare:", error);
@@ -71,7 +71,7 @@ const AdminPage = () => {
 
     const fetchFaqData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/faq');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=faq');
         setFaqData(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados do FAQ:", error);
@@ -80,7 +80,7 @@ const AdminPage = () => {
 
     const fetchReviewsData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/ranking');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=ranking');
         setReviewsData(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados de reviews:", error);
@@ -89,7 +89,7 @@ const AdminPage = () => {
 
     const fetchBlogData = async () => {
       try {
-        const response = await axios.get('http://localhost:3003/api/blog');
+        const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=blog');
         setBlogData(response.data);
       } catch (error) {
         console.error("Erro ao buscar dados do blog:", error);
@@ -109,7 +109,7 @@ const AdminPage = () => {
   // Função para adicionar um novo blog
   const handleBlogCreated = async (newBlog) => {
     try {
-      const response = await axios.post('http://localhost:3003/api/blog', newBlog); // Certifique-se de que o endpoint está correto
+      const response = await axios.post('https://omelhorcolchao.com.br/api.php?path=blog', newBlog)
       setBlogData((prevBlogs) => [...prevBlogs, response.data]);
       alert("Blog criado com sucesso!");
     } catch (error) {
@@ -121,19 +121,19 @@ const AdminPage = () => {
   const handleSave = async (type) => {
     try {
       if (type === 'desconto') {
-        await axios.put(`http://localhost:3003/api/desconto/${descontoData.id}`, descontoData);
+        await axios.put(`https://omelhorcolchao.com.br/api.php?path=desconto&id=${descontoData.id}`, descontoData)
         alert("Desconto atualizado com sucesso!");
       } else if (type === 'critColch') {
         await Promise.all(
           sliderData.map(slider => 
-            axios.put(`http://localhost:3003/api/critColch/${slider.id}`, slider)
+            axios.put(`https://omelhorcolchao.com.br/api.php?path=critColch&id=${slider.id}`, slider)
           )
         );
         alert("Critérios do colchão atualizados com sucesso!");
       } else if (type === 'criterios') {
         await Promise.all(
           criteriosData.map(criterio =>
-            axios.put(`http://localhost:3003/api/critMarca/${criterio.id}`, {
+            axios.put(`https://omelhorcolchao.com.br/api.php?path=critMarca&id=${criterio.id}`, {
               titulo: criterio.titulo,
               descricao: criterio.descricao
             })
@@ -143,7 +143,7 @@ const AdminPage = () => {
       } else if (type === 'orgaos') {
         await Promise.all(
           orgaosData.map(orgao =>
-            axios.put(`http://localhost:3003/api/orgaos/${orgao.id}`, {
+            axios.put(`https://omelhorcolchao.com.br/api.php?path=orgaos&id=${orgao.id}`, {
               titulo: orgao.titulo,
               descricao: orgao.descricao
             })
@@ -153,28 +153,28 @@ const AdminPage = () => {
       } else if (type === 'compare') {
         await Promise.all(
           compareItems.map(compare =>
-            axios.put(`http://localhost:3003/api/compare/${compare.id}`, compare)
+            axios.put(`https://omelhorcolchao.com.br/api.php?path=compare&id=${compare.id}`, compare)
           )
         );
         alert("Itens do ranking de comparação atualizados com sucesso!");
       } else if (type === 'faq') {
         await Promise.all(
           faqData.map(faq =>
-            axios.put(`http://localhost:3003/api/faq/${faq.id}`, faq)
+            axios.put(`https://omelhorcolchao.com.br/api.php?path=faq&id=${faq.id}`, faq)
           )
         );
         alert("FAQs atualizados com sucesso!");
       } else if (type === 'review') { 
         await Promise.all(
             reviewsData.map(review =>
-              axios.put(`http://localhost:3003/api/ranking/${review.id}`, review)
+              axios.put(`https://omelhorcolchao.com.br/api.php?path=ranking&id=${review.id}`, review)
             )
           );
           alert("Reviews atualizados com sucesso!");
       } else if (type === 'Blog') { 
         await Promise.all(
           blogData.map(blog =>
-            axios.put(`http://localhost:3003/api/blog/${blog.id}`, blog)
+            axios.put(`https://omelhorcolchao.com.br/api.php?path=blog&id=${blog.id}`, blog)
           )
         );
         alert("Blogs atualizados com sucesso!");

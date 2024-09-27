@@ -36,7 +36,7 @@ function BlogCarrossel() {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get('http://localhost:3003/api/blog');
+                const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=blog')
                 setBlogs(response.data);
             } catch (error) {
                 console.error('Erro ao carregar os blogs:', error);

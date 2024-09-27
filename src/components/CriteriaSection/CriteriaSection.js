@@ -7,7 +7,7 @@ function CriteriaSection() {
 
   // Busca os critérios ao carregar o componente
   useEffect(() => {
-    axios.get('http://localhost:3003/api/critMarca')
+    axios.get('https://omelhorcolchao.com.br/api.php?path=critMarca')
       .then(response => {
         setCriterios(response.data);
       })

@@ -14,7 +14,10 @@ const Login = () => {
         e.preventDefault();
         try {
             // Envia os dados de login para o servidor
-            const response = await axios.post('http://localhost:3001/api/login', { username, password });
+            const response = await axios.post('http://omelhorcolchao.com.br/api.php?path=login', {
+                username,
+                password
+              })
             if (response.data.success) {
                 // Armazena o token de autenticação e navega para a página de administração
                 localStorage.setItem('authToken', response.data.token);

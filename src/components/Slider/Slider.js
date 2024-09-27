@@ -50,7 +50,7 @@ function CustomSlider() {
 
     // Requisição dos dados para popular o slider
     useEffect(() => {
-        axios.get('http://localhost:3003/api/critColch')
+        axios.get('https://omelhorcolchao.com.br/api.php?path=critColch')
             .then(response => {
                 setData(response.data);
             })

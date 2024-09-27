@@ -44,7 +44,7 @@ function Compare() {
     useEffect(() => {        
         const fetchCompareItems = async () => {
             try {
-                const response = await axios.get('http://localhost:3003/api/compare'); // Atualize a porta
+                const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=compare') // Atualize a porta
                 setCompareItems(response.data);
             } catch (error) {
                 console.error("Erro ao buscar itens do Compare:", error);

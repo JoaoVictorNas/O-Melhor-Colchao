@@ -19,7 +19,7 @@ const Materia = () => {
 
     // Busca a matéria correspondente pelo slug
     useEffect(() => {
-        axios.get(`http://localhost:3003/api/blogs/${slug}`) // Atualize para a porta correta (3003)
+        axios.get(`https://omelhorcolchao.com.br/api.php?path=blog&slug=${slug}`)
             .then(response => setMateria(response.data))
             .catch(error => setError('Erro ao carregar a matéria: ' + error.message));
     }, [slug]);

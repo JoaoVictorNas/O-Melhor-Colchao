@@ -11,7 +11,7 @@ function Blog() {
 
     // Busca os blogs ao carregar o componente
     useEffect(() => {
-        axios.get('http://localhost:3003/api/blog') // Atualize a porta para 3003
+        axios.get('https://omelhorcolchao.com.br/api.php?path=blog')
             .then(response => {
                 const blogsData = response.data.sort((a, b) => b.id - a.id); // Ordena em ordem decrescente
                 const latest = blogsData[0]; // O blog mais recente

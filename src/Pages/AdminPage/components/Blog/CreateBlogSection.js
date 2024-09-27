@@ -39,7 +39,7 @@ const CreateBlogection = ({ onCreate }) => {
         };
 
         try {
-            const response = await fetch('http://localhost:3003/api/Blog', {
+            const response = await fetch('https://omelhorcolchao.com.br/api.php?path=blog', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

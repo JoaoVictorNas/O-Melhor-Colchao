@@ -36,7 +36,7 @@ function Desconto() {
 
     // Requisição dos dados de desconto da API
     useEffect(() => {
-        axios.get('http://localhost:3003/api/desconto')
+        axios.get('https://omelhorcolchao.com.br/api.php?path=desconto')
             .then(response => {
                 const data = response.data[0];
                 setDescontoData({
