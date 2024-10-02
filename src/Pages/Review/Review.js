@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
 import './Review.css';
 import Header from "../../components/Header/Header";
 import BlogCarrossel from "../../components/BlogCarrossel/BlogCarrossel";
 import Footer from "../../components/Footer/Footer";
+import dataCache from '../../dataCache'; // Importando o dataCache
 
 const Review = () => {
-    const { url } = useParams();
+    const { url } = useParams(); // 'url' é o slug vindo da rota
     const [review, setReview] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        axios.get(`http://omelhorcolchao.com.br/api.php?path=review&slug=${url}`)
-            .then(response => setReview(response.data))
-            .catch(error => setError('Erro ao carregar o review: ' + error.message));
-    }, [url]);    
+        // Busca o review no dataCache com base no slug (url)
+        const fetchReview = () => {
+            const foundReview = dataCache.reviews.find(item => item.slug === url);
+            if (foundReview) {
+                setReview(foundReview);
+            } else {
+                setError('Review não encontrado.');
+            }
+        };
+
+        fetchReview();
+    }, [url]);
 
     if (error) {
         return <p>{error}</p>;
@@ -48,9 +56,9 @@ const Review = () => {
                         </div>
                         <div className="top1-content">
                             <h2>BF Colchões</h2>
-                            <p>BF Antiestress</p>
+                            <p>{review.product}</p>
                         </div>
-                        <a href='https://emcompre.com.br/colchao-casal-firme-antistress-vacuo-ortopedico-light-bf-colchoes.html?srsltid=AfmBOoqKSakFRB2GI0S4nSCe2FQqwHsEGQT_cJgE2rQYoLsrUBfct2S-'>
+                        <a href={review.site}>
                             <button className="ver-produto">Ver produto</button>
                         </a>
                     </div>

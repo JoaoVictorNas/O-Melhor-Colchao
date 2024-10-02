@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import BlogCarrossel from "../../components/BlogCarrossel/BlogCarrossel";
 import Footer from "../../components/Footer/Footer";
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import dataCache from '../../dataCache'; // Importando o dataCache
 
 const Materia = () => {
     const { slug } = useParams();
@@ -17,11 +17,18 @@ const Materia = () => {
         navigate(-1);
     };
 
-    // Busca a matéria correspondente pelo slug
+    // Busca a matéria correspondente pelo slug no dataCache
     useEffect(() => {
-        axios.get(`https://omelhorcolchao.com.br/api.php?path=blog&slug=${slug}`)
-            .then(response => setMateria(response.data))
-            .catch(error => setError('Erro ao carregar a matéria: ' + error.message));
+        const fetchMateria = () => {
+            const foundMateria = dataCache.blog.find(item => item.slug === slug);
+            if (foundMateria) {
+                setMateria(foundMateria);
+            } else {
+                setError('Matéria não encontrada.');
+            }
+        };
+
+        fetchMateria();
     }, [slug]);
 
     if (error) {

@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import './Orgaos.css';
+import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
 
 function Reguladores() {
     const [orgaos, setOrgaos] = useState([]);
 
+    // Lógica de animação ao scroll
     const isElementVisible = (el) => {
         const rect = el.getBoundingClientRect();
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
@@ -33,15 +34,20 @@ function Reguladores() {
         };
     }, []); 
 
+    // Carrega os dados diretamente do dataCache após garantir que foram carregados
     useEffect(() => {
-        axios.get('https://omelhorcolchao.com.br/api.php?path=orgaos')
-            .then(response => {
-                setOrgaos(response.data);
-            })
-            .catch(error => {
-                console.error("Erro ao buscar órgãos reguladores:", error);
-            });
-    }, []);
+        const checkDataLoaded = () => {
+            if (dataCache.orgaos && dataCache.orgaos.length > 0) {
+                console.log("Dados de órgãos encontrados:", dataCache.orgaos);
+                setOrgaos(dataCache.orgaos); // Armazena os dados no estado orgaos
+            } else {
+                console.log("Aguardando dados de órgãos serem carregados...");
+                setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
+            }
+        };
+
+        checkDataLoaded(); // Chama a função para verificar os dados
+    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
 
     return (
         <div className='reguladores-section'>
@@ -54,7 +60,7 @@ function Reguladores() {
                             <h3 className='reguladores-title'>
                                 <img 
                                     src={`https://bfbaby.com.br/up/orgao-${orgao.id}.png`} 
-                                    alt={orgao.titulo || `Ícone orgão regulador`} 
+                                    alt={orgao.titulo || `Ícone órgão regulador`} 
                                     className="reguladores-icon" 
                                 />
                                 {orgao.titulo}

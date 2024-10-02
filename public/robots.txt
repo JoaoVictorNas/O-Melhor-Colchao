@@ -1,3 +1,31 @@
-# https://www.robotstxt.org/robotstxt.html
+# Bloquear todos os rastreadores de acessar o admin e arquivos privados
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /private/
+Disallow: /config/
+
+# Permitir rastreadores acessarem as principais páginas do site
+Allow: /public/
+Allow: /about-us/
+Allow: /contact/
+Allow: /blog/
+
+# Bloquear conteúdo duplicado (ex: parâmetros de URL que geram duplicação)
+Disallow: /*?session_id=
+Disallow: /*?tracking_id=
+
+# Permitir rastreadores específicos a acessar tudo
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Bloquear outros rastreadores indesejados (exemplo: rastreadores de spam)
+User-agent: BadBot
+Disallow: /
+
+# Localização do sitemap para ajudar os motores de busca a encontrar todas as páginas importantes
+Sitemap: https://www.seusite.com/sitemap.xml

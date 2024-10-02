@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import './BlogCarrossel.css';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
 
 function BlogCarrossel() {
     const [blogs, setBlogs] = useState([]);
@@ -32,19 +32,20 @@ function BlogCarrossel() {
         };
     }, []); // Não precisa de dependências aqui, pois handleScroll está dentro do useEffect
 
-    // Busca os blogs ao carregar o componente
+    // Carrega os blogs diretamente do dataCache
     useEffect(() => {
-        const fetchBlogs = async () => {
-            try {
-                const response = await axios.get('https://omelhorcolchao.com.br/api.php?path=blog')
-                setBlogs(response.data);
-            } catch (error) {
-                console.error('Erro ao carregar os blogs:', error);
+        const checkDataLoaded = () => {
+            if (dataCache.blog && dataCache.blog.length > 0) {
+                setBlogs(dataCache.blog);
+                console.log("Dados de blogs encontrados:", dataCache.blog);
+            } else {
+                console.log("Aguardando dados de blogs serem carregados...");
+                setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
             }
         };
 
-        fetchBlogs();
-    }, []);
+        checkDataLoaded(); // Chama a função para verificar os dados
+    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
 
     const settings = {
         dots: true,

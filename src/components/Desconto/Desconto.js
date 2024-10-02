@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './Desconto.css';
+import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
 
 function Desconto() {
     const [descontoData, setDescontoData] = useState({
@@ -34,21 +34,25 @@ function Desconto() {
         };
     }, []);
 
-    // Requisição dos dados de desconto da API
+    // Carrega os dados diretamente do dataCache após garantir que foram carregados
     useEffect(() => {
-        axios.get('https://omelhorcolchao.com.br/api.php?path=desconto')
-            .then(response => {
-                const data = response.data[0];
+        const checkDataLoaded = () => {
+            if (dataCache.desconto && dataCache.desconto.length > 0) {
+                const data = dataCache.desconto[0];
                 setDescontoData({
                     description: data.descricao,
                     botao: data.botao_Texto,
                     image: data.url_Imagem
                 });
-            })
-            .catch(error => {
-                console.error("Erro ao buscar dados de desconto:", error);
-            });
-    }, []);
+                console.log("Dados de desconto encontrados:", dataCache.desconto);
+            } else {
+                console.log("Aguardando dados de desconto serem carregados...");
+                setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
+            }
+        };
+
+        checkDataLoaded(); // Chama a função para verificar os dados
+    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
 
     return (
         <div className="simple-section animate" style={{ backgroundImage: `url(${descontoData.image})` }}>

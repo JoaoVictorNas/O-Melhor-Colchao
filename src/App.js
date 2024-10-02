@@ -32,7 +32,7 @@ const App = () => {
                     <CriteriaSection />
                     <Slider />
                     <Orgaos />
-                    <Compare />
+                    {/* <Compare /> */}
                     <Desconto />
                     <BlogCarrossel />
                     <Faq />

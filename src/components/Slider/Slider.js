@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CustomSlider.css";
-import axios from 'axios';
+import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
 
 function CustomSlider() {
     const [data, setData] = useState([]);
@@ -48,16 +48,20 @@ function CustomSlider() {
         };
     }, []);  // Não precisa de dependências, pois handleScroll está dentro do useEffect
 
-    // Requisição dos dados para popular o slider
+    // Carrega os dados diretamente do dataCache após garantir que foram carregados
     useEffect(() => {
-        axios.get('https://omelhorcolchao.com.br/api.php?path=critColch')
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => {
-                console.error("Erro ao buscar dados do slider:", error);
-            });
-    }, []);
+        const checkDataLoaded = () => {
+            if (dataCache.critColch && dataCache.critColch.length > 0) {
+                console.log("Dados de critColch encontrados:", dataCache.critColch);
+                setData(dataCache.critColch); // Armazena os dados no estado
+            } else {
+                console.log("Aguardando dados de critColch serem carregados...");
+                setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
+            }
+        };
+
+        checkDataLoaded(); // Chama a função para verificar os dados
+    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
 
     // Configurações do slider
     const settings = {

@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './CriteriaSection.css';
+import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
 
 function CriteriaSection() {
   const [criterios, setCriterios] = useState([]);
 
-  // Busca os critérios ao carregar o componente
+  // Verifica se os dados de critMarca já foram carregados no dataCache
   useEffect(() => {
-    axios.get('https://omelhorcolchao.com.br/api.php?path=critMarca')
-      .then(response => {
-        setCriterios(response.data);
-      })
-      .catch(error => {
-        console.error("Houve um erro ao buscar os critérios:", error);
-      });
-  }, []);
+    const checkDataLoaded = () => {
+      if (dataCache.critMarca && dataCache.critMarca.length > 0) {
+        console.log("Dados de critMarca encontrados:", dataCache.critMarca);
+        setCriterios(dataCache.critMarca); // Armazena os dados no estado criterios
+      } else {
+        console.log("Aguardando dados de critMarca serem carregados...");
+        setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
+      }
+    };
+
+    checkDataLoaded(); // Chama a função para verificar os dados
+  }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
 
   return (
     <div className="criteria-section">
