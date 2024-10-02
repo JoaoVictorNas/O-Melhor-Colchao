@@ -1,20 +1,31 @@
-# Bloquear todos os rastreadores de acessar o admin e arquivos privados
+# Bloquear todos os rastreadores de acessar o admin, API e arquivos sensíveis
 User-agent: *
 Disallow: /admin/
 Disallow: /login/
 Disallow: /register/
 Disallow: /private/
 Disallow: /config/
+Disallow: /api.php
+Disallow: /checkout/
+Disallow: /user/
 
-# Permitir rastreadores acessarem as principais páginas do site
+# Bloquear conteúdo duplicado gerado por parâmetros de URL
+Disallow: /*?session_id=
+Disallow: /*?tracking_id=
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?ref=
+
+# Permitir rastreadores acessarem as principais páginas públicas do site
 Allow: /public/
 Allow: /about-us/
 Allow: /contact/
 Allow: /blog/
-
-# Bloquear conteúdo duplicado (ex: parâmetros de URL que geram duplicação)
-Disallow: /*?session_id=
-Disallow: /*?tracking_id=
+Allow: /compare/
+Allow: /reviews/
+Allow: /products/
+Allow: /
 
 # Permitir rastreadores específicos a acessar tudo
 User-agent: Googlebot
@@ -23,9 +34,9 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Bloquear outros rastreadores indesejados (exemplo: rastreadores de spam)
+# Bloquear rastreadores indesejados (exemplo: rastreadores de spam ou bots maliciosos)
 User-agent: BadBot
 Disallow: /
 
 # Localização do sitemap para ajudar os motores de busca a encontrar todas as páginas importantes
-Sitemap: https://www.seusite.com/sitemap.xml
+Sitemap: https://www.omelhorcolchao.com.br/sitemap.xml
