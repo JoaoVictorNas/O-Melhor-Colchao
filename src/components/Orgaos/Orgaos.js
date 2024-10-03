@@ -5,7 +5,7 @@ import dataCache from '../../dataCache'; // Certifique-se de que o caminho está
 function Reguladores() {
     const [orgaos, setOrgaos] = useState([]);
 
-    // Lógica de animação ao scroll
+    // Verifica se o elemento está visível na viewport
     const isElementVisible = (el) => {
         const rect = el.getBoundingClientRect();
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
@@ -17,6 +17,7 @@ function Reguladores() {
         return (vertInView && horInView);
     };
 
+    // Aplica a animação quando o elemento se torna visível ao rolar a página
     useEffect(() => {
         const handleScroll = () => {
             const animatedElements = document.querySelectorAll('.animate');
@@ -30,24 +31,22 @@ function Reguladores() {
         window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll); // Remove o listener ao desmontar
         };
     }, []); 
 
-    // Carrega os dados diretamente do dataCache após garantir que foram carregados
+    // Carrega os dados do dataCache
     useEffect(() => {
         const checkDataLoaded = () => {
             if (dataCache.orgaos && dataCache.orgaos.length > 0) {
-                console.log("Dados de órgãos encontrados:", dataCache.orgaos);
-                setOrgaos(dataCache.orgaos); // Armazena os dados no estado orgaos
+                setOrgaos(dataCache.orgaos);
             } else {
-                console.log("Aguardando dados de órgãos serem carregados...");
                 setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
             }
         };
 
-        checkDataLoaded(); // Chama a função para verificar os dados
-    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
+        checkDataLoaded();
+    }, []); 
 
     return (
         <div className='reguladores-section'>

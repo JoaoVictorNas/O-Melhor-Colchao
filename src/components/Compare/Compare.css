@@ -24,6 +24,25 @@
   transform: translateY(0);
 }
 
+/* Adicionando atraso nas animações */
+.card .image.animate-visible {
+  transition-delay: 0.2s;
+}
+
+.card .card-content h2.animate-visible,
+.card .card-content h3.animate-visible {
+  transition-delay: 0.3s;
+}
+
+.card .features li.animate-visible {
+  transition-delay: 0.4s;
+}
+
+.card .primary-button.animate-visible,
+.card .secondary-button.animate-visible {
+  transition-delay: 0.5s;
+}
+
 .card {
   display: flex;
   align-items: center;

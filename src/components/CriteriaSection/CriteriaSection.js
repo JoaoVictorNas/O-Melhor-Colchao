@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import './CriteriaSection.css';
-import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
+import dataCache from '../../dataCache';
 
 function CriteriaSection() {
   const [criterios, setCriterios] = useState([]);
 
-  // Verifica se os dados de critMarca já foram carregados no dataCache
+  // Carrega os dados de critMarca do dataCache
   useEffect(() => {
     const checkDataLoaded = () => {
       if (dataCache.critMarca && dataCache.critMarca.length > 0) {
-        console.log("Dados de critMarca encontrados:", dataCache.critMarca);
         setCriterios(dataCache.critMarca); // Armazena os dados no estado criterios
       } else {
-        console.log("Aguardando dados de critMarca serem carregados...");
-        setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
+        setTimeout(checkDataLoaded, 500); // Verifica novamente após 500ms
       }
     };
 
-    checkDataLoaded(); // Chama a função para verificar os dados
-  }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
+    checkDataLoaded();
+  }, []); // Executa apenas uma vez ao montar o componente
 
   return (
     <div className="criteria-section">

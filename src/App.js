@@ -19,20 +19,20 @@ import Review from "./Pages/Review/Review";
 
 const App = () => {
     const location = useLocation();
-    const excludedPaths = ["/admin", "/login", "/materia", "/blog", "/review"];
+    const excludedPaths = ["/admin", "/login", "/materia", "/blog", "/review"]; // Define paths onde os componentes comuns não são renderizados
 
     const shouldRenderCommonComponents = !excludedPaths.some(path => location.pathname.startsWith(path));
 
     return (
         <div>
-            {shouldRenderCommonComponents && (
+            {shouldRenderCommonComponents && ( // Renderiza componentes comuns em todas as páginas, exceto as excluídas
                 <>
                     <Header />
                     <TitleSection />
                     <CriteriaSection />
                     <Slider />
                     <Orgaos />
-                    {/* <Compare /> */}
+                    <Compare />
                     <Desconto />
                     <BlogCarrossel />
                     <Faq />

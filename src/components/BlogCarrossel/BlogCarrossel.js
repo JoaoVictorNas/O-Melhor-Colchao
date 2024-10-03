@@ -2,19 +2,19 @@ import React, { useState, useEffect } from "react";
 import './BlogCarrossel.css';
 import Slider from "react-slick";
 import { Link } from 'react-router-dom';
-import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
+import dataCache from '../../dataCache';
 
 function BlogCarrossel() {
     const [blogs, setBlogs] = useState([]);
 
-    // Função para verificar se o elemento está visível na viewport
+    // Verifica se o elemento está visível na viewport
     const isElementVisible = (el) => {
         const rect = el.getBoundingClientRect();
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
         return (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
     };
 
-    // Listener de scroll para ativar animações
+    // Ativa animações quando o scroll detecta a visibilidade dos elementos
     useEffect(() => {
         const handleScroll = () => {
             const elements = document.querySelectorAll('.animate');
@@ -26,26 +26,24 @@ function BlogCarrossel() {
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Chamando a função para definir o estado inicial das animações
+        handleScroll(); // Define o estado inicial das animações
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []); // Não precisa de dependências aqui, pois handleScroll está dentro do useEffect
+    }, []); 
 
-    // Carrega os blogs diretamente do dataCache
+    // Carrega os blogs do dataCache
     useEffect(() => {
         const checkDataLoaded = () => {
             if (dataCache.blog && dataCache.blog.length > 0) {
                 setBlogs(dataCache.blog);
-                console.log("Dados de blogs encontrados:", dataCache.blog);
             } else {
-                console.log("Aguardando dados de blogs serem carregados...");
                 setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
             }
         };
 
-        checkDataLoaded(); // Chama a função para verificar os dados
-    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
+        checkDataLoaded();
+    }, []); 
 
     const settings = {
         dots: true,

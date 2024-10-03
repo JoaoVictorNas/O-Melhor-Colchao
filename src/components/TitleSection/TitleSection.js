@@ -1,9 +1,9 @@
 import React from 'react';
 import './TitleSection.css';
 
-// Componente de seção de título para a página principal
+// Componente da seção de título
 function TitleSection() {
-  // Função para rolar suavemente até a seção alvo
+  // Rola suavemente até a seção alvo
   const handleScroll = (event, targetId) => {
     event.preventDefault();
     const targetElement = document.getElementById(targetId);
@@ -22,13 +22,7 @@ function TitleSection() {
         Queremos te ajudar a encontrar o colchão perfeito, com qualidade,<br/>
         preço justo e o conforto que suas noites merecem.
       </p>
-      <a
-        href="#Compare"
-        className="cta-button"
-        onClick={(e) => handleScroll(e, 'Compare')}
-      >
-        Encontre o Melhor Colchão
-      </a>
+      <a href="/" className='cta-button' onClick={(e) => handleScroll(e, 'compare', '/')}>Encontre o Melhor Colchão</a>
     </div>
   );
 }

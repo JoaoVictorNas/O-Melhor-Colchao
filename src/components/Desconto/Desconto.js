@@ -9,12 +9,14 @@ function Desconto() {
         image: ''
     });
 
+    // Verifica se o elemento está visível na viewport
     const isElementVisible = (el) => {
         const rect = el.getBoundingClientRect();
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
         return (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
     };
 
+    // Ativa a animação ao rolar a página e a seção se tornar visível
     useEffect(() => {
         const handleScroll = () => {
             const section = document.querySelector('.simple-section');
@@ -34,7 +36,7 @@ function Desconto() {
         };
     }, []);
 
-    // Carrega os dados diretamente do dataCache após garantir que foram carregados
+    // Carrega os dados do dataCache
     useEffect(() => {
         const checkDataLoaded = () => {
             if (dataCache.desconto && dataCache.desconto.length > 0) {
@@ -44,15 +46,13 @@ function Desconto() {
                     botao: data.botao_Texto,
                     image: data.url_Imagem
                 });
-                console.log("Dados de desconto encontrados:", dataCache.desconto);
             } else {
-                console.log("Aguardando dados de desconto serem carregados...");
-                setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
+                setTimeout(checkDataLoaded, 500); // Verifica novamente após 500ms
             }
         };
 
-        checkDataLoaded(); // Chama a função para verificar os dados
-    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
+        checkDataLoaded();
+    }, []); // Executa apenas uma vez ao montar o componente
 
     return (
         <div className="simple-section animate" style={{ backgroundImage: `url(${descontoData.image})` }}>

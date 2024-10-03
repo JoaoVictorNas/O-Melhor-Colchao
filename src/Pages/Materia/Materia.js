@@ -4,20 +4,19 @@ import Header from "../../components/Header/Header";
 import BlogCarrossel from "../../components/BlogCarrossel/BlogCarrossel";
 import Footer from "../../components/Footer/Footer";
 import { useParams, useNavigate } from 'react-router-dom';
-import dataCache from '../../dataCache'; // Importando o dataCache
+import dataCache from '../../dataCache'; // Importando o cache de dados
 
 const Materia = () => {
-    const { slug } = useParams();
+    const { slug } = useParams(); // Obtém o slug da URL
     const [materia, setMateria] = useState(null);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     const handleBackClick = () => {
-        // Volta uma página na história de navegação
-        navigate(-1);
+        navigate(-1); // Volta uma página na história de navegação
     };
 
-    // Busca a matéria correspondente pelo slug no dataCache
+    // Busca a matéria correspondente no cache de dados
     useEffect(() => {
         const fetchMateria = () => {
             const foundMateria = dataCache.blog.find(item => item.slug === slug);

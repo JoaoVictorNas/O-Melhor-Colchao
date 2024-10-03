@@ -6,7 +6,7 @@ function Faq() {
     const [faq, setFaq] = useState([]);
     const [activeIndex, setActiveIndex] = useState(null);
 
-    // Função para alternar a visibilidade das respostas
+    // Alterna a visibilidade das respostas
     const toggleFAQ = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
@@ -15,16 +15,14 @@ function Faq() {
     useEffect(() => {
         const checkDataLoaded = () => {
             if (dataCache.faq && dataCache.faq.length > 0) {
-                console.log("Dados de FAQ encontrados:", dataCache.faq);
                 setFaq(dataCache.faq); // Armazena os dados no estado faq
             } else {
-                console.log("Aguardando dados de FAQ serem carregados...");
                 setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
             }
         };
 
-        checkDataLoaded(); // Chama a função para verificar os dados
-    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
+        checkDataLoaded();
+    }, []); // Executa apenas uma vez ao montar o componente
 
     return (
         <div className="faq-container" id="faq">

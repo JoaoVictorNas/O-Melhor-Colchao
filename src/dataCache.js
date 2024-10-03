@@ -1,50 +1,105 @@
-// Função para carregar dados de uma URL e retornar o texto processado
 const fetchDataFromUrl = async (url) => {
   try {
-      const response = await fetch(url); // Faz a requisição HTTP para a URL
-      const textData = await response.text(); // Obtém o texto como resposta
-      const parsedData = parseTextToObjects(textData); // Converte o texto em múltiplos objetos
-      return parsedData; // Retorna o array de objetos
+      const response = await fetch(url);
+      const textData = await response.text();
+      const parsedData = parseTextToObjects(textData, url);
+      return parsedData;
   } catch (error) {
       console.error(`Erro ao carregar dados da URL ${url}:`, error);
-      return null; // Retorna null em caso de erro
+      return null;
   }
 };
 
-// Função para converter o texto em múltiplos objetos JavaScript (array de objetos)
-const parseTextToObjects = (text) => {
+// Converte o texto em objetos JavaScript (array de objetos)
+const parseTextToObjects = (text, url) => {
   const items = text.trim().split("\n\n");
 
-  // Itera sobre cada bloco e transforma em um objeto
+  if (url.includes('compare')) {
+    return processCompareData(items);
+  }
+
   const data = items.map(itemText => {
       const object = {};
-      const lines = itemText.split("\n"); // Divide o bloco em linhas
+      const lines = itemText.split("\n");
 
       lines.forEach((line) => {
-        // Divide cada linha pelo "=>", já que no seu caso isso separa chave e valor
         const keyValuePair = line.split("=>");
 
         if (keyValuePair.length === 2) {
-          const key = keyValuePair[0].replace(/[\[\]]/g, '').trim(); // Remove os colchetes [ ]
-          const value = keyValuePair[1].trim(); // Valor já limpo
+          const key = keyValuePair[0].replace(/[\[\]]/g, '').trim();
+          const value = keyValuePair[1].trim();
 
-          // Verifica se o valor é uma string, e remove aspas se necessário
           const formattedValue = value.startsWith("'") || value.startsWith('"') 
-            ? value.slice(1, -1) // Remove aspas no início e no final
+            ? value.slice(1, -1)
             : value;
 
-          // Adiciona chave e valor ao objeto
           object[key] = formattedValue;
         }
       });
 
-      return object; // Retorna o objeto criado para este bloco
+      return object;
   });
 
-  return data; // Retorna o array de objetos
+  return data;
 };
 
-// URLs das tabelas (ajustadas conforme o PHP)
+// Processa os dados da URL 'compare' e estrutura corretamente as features
+const processCompareData = (items) => {
+  const compareData = [];
+  let currentProduct = null;
+
+  items.forEach(itemText => {
+    const object = {};
+    const lines = itemText.split("\n");
+
+    lines.forEach((line) => {
+      const keyValuePair = line.split("=>");
+
+      if (keyValuePair.length === 2) {
+        const key = keyValuePair[0].replace(/[\[\]]/g, '').trim();
+        const value = keyValuePair[1].trim();
+
+        const formattedValue = value.startsWith("'") || value.startsWith('"')
+          ? value.slice(1, -1)
+          : value;
+
+        object[key] = formattedValue;
+      }
+    });
+
+    // Se o objeto contém uma 'brand', 'id', 'product', é um novo produto
+    if (object.id && object.brand) {
+      if (currentProduct) {
+        compareData.push(currentProduct);
+      }
+      currentProduct = {
+        id: object.id,
+        brand: object.brand,
+        product: object.product,
+        image: object.image,
+        site: object.site,
+        rating: object.rating,
+        reviewCount: object.reviewCount,
+        slug: object.slug,
+        features: []
+      };
+    } 
+    // Se o objeto contém uma 'feature', é uma feature do produto atual
+    else if (currentProduct && object.feature) {
+      currentProduct.features.push({
+        feature: object.feature,
+        rating: object.nota
+      });
+    }
+  });
+
+  if (currentProduct) {
+    compareData.push(currentProduct);
+  }
+
+  return compareData;
+};
+
 const urls = {
   blog: 'https://omelhorcolchao.com.br/api.php?path=blog',
   orgaos: 'https://omelhorcolchao.com.br/api.php?path=orgaos',
@@ -56,7 +111,7 @@ const urls = {
   compare: 'https://omelhorcolchao.com.br/api.php?path=compare'
 };
 
-// Objeto onde armazenaremos os dados pré-carregados de todas as tabelas
+// Armazena os dados pré-carregados
 const dataCache = {
   blog: null,
   orgaos: null,
@@ -68,7 +123,7 @@ const dataCache = {
   compare: null
 };
 
-// Função para pré-carregar todos os dados
+// Pré-carrega todos os dados
 const preloadData = async () => {
   dataCache.blog = await fetchDataFromUrl(urls.blog);
   dataCache.orgaos = await fetchDataFromUrl(urls.orgaos);
@@ -78,10 +133,9 @@ const preloadData = async () => {
   dataCache.faq = await fetchDataFromUrl(urls.faq);
   dataCache.ranking = await fetchDataFromUrl(urls.ranking);
   dataCache.compare = await fetchDataFromUrl(urls.compare);
-  
+  console.log(dataCache.compare);
 };
 
-// Chama a função para carregar os dados quando o arquivo é importado
 preloadData();
 
 export default dataCache;

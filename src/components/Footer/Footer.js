@@ -1,7 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Footer.css';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Footer() {
+    const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    // Função para rolar suavemente até a seção alvo, com navegação condicional
+    const handleScroll = (event, targetId, path = '/') => {
+        event.preventDefault();
+
+        // Navega até o caminho se estiver em outra página e depois rola até a seção
+        if (window.location.pathname !== path) {
+            navigate(path, { replace: true });
+            setTimeout(() => {
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100); // Pequeno atraso para garantir o carregamento do conteúdo
+        } else {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+
     return (
         <footer className="footer">
             <div className="footer-content">
@@ -10,9 +35,15 @@ function Footer() {
                 </div>
                 <div className="footer-links">
                     <ul>
-                        <li><a href="/ranking">Ranking</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/faq">Perguntas frequentes</a></li>
+                        <li>
+                            <a href="/" onClick={(e) => handleScroll(e, 'compare', '/')}>Ranking</a>
+                        </li>
+                        <li>
+                            <Link to="/blog" onClick={() => setMenuOpen(false)}>Blog</Link>
+                        </li>
+                        <li>
+                            <a href="/" onClick={(e) => handleScroll(e, 'faq', '/')}>Perguntas Frequentes</a>
+                        </li>
                     </ul>
                 </div>
                 <div className="footer-description">

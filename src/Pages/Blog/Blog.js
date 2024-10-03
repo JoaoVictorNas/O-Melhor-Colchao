@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import './Blog.css';
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import dataCache from "../../dataCache";
 
@@ -14,28 +13,20 @@ function Blog() {
     useEffect(() =>{
         const checkDataLoaded = () => {
             if (dataCache.blog && dataCache.blog.length > 0) {
-                // Ordena os blogs do último para o primeiro (decrescente)
-                const blogsData = dataCache.blog.sort((a, b) => b.id - a.id);
+                const blogsData = dataCache.blog.sort((a, b) => b.id - a.id); // Ordena do mais recente ao mais antigo
+                const latest = blogsData[0]; // Pega o blog mais recente
                 
-                // Pega o blog mais recente (primeiro da lista ordenada)
-                const latest = blogsData[0];
-        
-                // Atualiza o estado com o blog mais recente e remove ele do array
                 setLatestBlog(latest);
                 setBlogs(blogsData.filter(blog => blog.id !== latest.id)); // Remove o mais recente do array
-                
-                console.log("Blogs carregados:", blogsData);
             } else {
-                console.log("Aguardando dados de blogs serem carregados...");
-                setTimeout(checkDataLoaded, 500);
+                setTimeout(checkDataLoaded, 500); // Aguarda o carregamento dos dados
             }
         };
         
         checkDataLoaded();
     }, []);
 
-    // Calcula o número de placeholders para alinhar os cards
-    const numberOfPlaceholders = (3 - (blogs.length % 3)) % 3;
+    const numberOfPlaceholders = (3 - (blogs.length % 3)) % 3; // Calcula placeholders para alinhamento
 
     return (
         <>
@@ -69,7 +60,7 @@ function Blog() {
                             </div>
                         </div>
                     ))}
-                    {/* Renderiza placeholders para alinhamento */}
+                    {/* Renderiza placeholders para manter o alinhamento */}
                     {Array.from({ length: numberOfPlaceholders }).map((_, index) => (
                         <div key={index} className="placeholder-card"></div>
                     ))}

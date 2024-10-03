@@ -3,12 +3,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./CustomSlider.css";
-import dataCache from '../../dataCache'; // Certifique-se de que o caminho está correto
+import dataCache from '../../dataCache';
 
 function CustomSlider() {
     const [data, setData] = useState([]);
 
-    // Função para verificar se o container do slider está visível na viewport
+    // Verifica se o container do slider está visível na viewport
     const isSliderVisible = (el) => {
         const rect = el.getBoundingClientRect();
         const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
@@ -21,7 +21,7 @@ function CustomSlider() {
         return (vertInView && horInView);
     };
 
-    // Função para aplicar animação em todos os elementos do slider
+    // Aplica animação em todos os elementos do slider
     const activateAllAnimations = () => {
         const animatedElements = document.querySelectorAll('.custom-card, .card-image, .card-content');
         animatedElements.forEach((el) => {
@@ -32,36 +32,32 @@ function CustomSlider() {
     // Listener de scroll para monitorar a visibilidade do container do slider
     useEffect(() => {
         const handleScroll = () => {
-            const sliderContainer = document.querySelector('.slider-container');  // Pega o container do slider
+            const sliderContainer = document.querySelector('.slider-container');
             if (sliderContainer && isSliderVisible(sliderContainer)) {
-                activateAllAnimations();  // Ativa a animação em todos os elementos
-                window.removeEventListener('scroll', handleScroll);  // Remove o listener após a ativação
+                activateAllAnimations();
+                window.removeEventListener('scroll', handleScroll); // Remove o listener após a ativação
             }
         };
 
-        // Adiciona o event listener para o scroll
         window.addEventListener('scroll', handleScroll);
 
-        // Remove o event listener quando o componente for desmontado
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleScroll); // Remove o listener ao desmontar
         };
-    }, []);  // Não precisa de dependências, pois handleScroll está dentro do useEffect
+    }, []);
 
-    // Carrega os dados diretamente do dataCache após garantir que foram carregados
+    // Carrega os dados do dataCache após verificar se estão prontos
     useEffect(() => {
         const checkDataLoaded = () => {
             if (dataCache.critColch && dataCache.critColch.length > 0) {
-                console.log("Dados de critColch encontrados:", dataCache.critColch);
-                setData(dataCache.critColch); // Armazena os dados no estado
+                setData(dataCache.critColch);
             } else {
-                console.log("Aguardando dados de critColch serem carregados...");
-                setTimeout(checkDataLoaded, 500); // Tenta novamente após 500ms
+                setTimeout(checkDataLoaded, 500); // Verifica novamente após 500ms
             }
         };
 
-        checkDataLoaded(); // Chama a função para verificar os dados
-    }, []); // Esse useEffect será executado apenas uma vez ao montar o componente
+        checkDataLoaded();
+    }, []);
 
     // Configurações do slider
     const settings = {

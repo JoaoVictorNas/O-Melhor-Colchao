@@ -4,17 +4,17 @@ import './Review.css';
 import Header from "../../components/Header/Header";
 import BlogCarrossel from "../../components/BlogCarrossel/BlogCarrossel";
 import Footer from "../../components/Footer/Footer";
-import dataCache from '../../dataCache'; // Importando o dataCache
+import dataCache from '../../dataCache';
 
 const Review = () => {
-    const { url } = useParams(); // 'url' é o slug vindo da rota
+    const { url } = useParams(); // Obtém o slug da URL
     const [review, setReview] = useState(null);
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Busca o review no dataCache com base no slug (url)
+        // Busca o review no dataCache com base no slug
         const fetchReview = () => {
-            const foundReview = dataCache.reviews.find(item => item.slug === url);
+            const foundReview = dataCache.ranking.find(item => item.slug === url);
             if (foundReview) {
                 setReview(foundReview);
             } else {
@@ -41,7 +41,7 @@ const Review = () => {
                 <a href="/">
                     <img src="https://bfbaby.com.br/up/voltar.png" alt="voltar" className="back" />
                 </a>
-                <h1 className="title-review">{review.product}</h1>
+                <h1 className="title-review">{review.produto}</h1>
                 <div className="review-content-page">
                     <div className="review-image-container">
                         <img className="review-placeholder" src={`https://bfbaby.com.br/up/review-${review.id}.png`} alt='Colchão Destaque'/>
